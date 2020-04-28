@@ -5,8 +5,7 @@ nav_order: 2
 published: true
 ---
 
-<<<<<<< HEAD
-## Part 0 - Oppimistavoitteet
+## Osa 0 - Oppimistavoitteet
 
 Tällä kurssilla opiskelija perehtyy C++:aan niin, että hallitsee sen perusteet ja osaa luoda C++:lla sovelluksia, jotka on myös kirjoitettu laadukkaasti. Kurssilla opiskelija suorittaa tehtäviä, jotka pohjaavat materiaalin eri osa-alueisiin. Joka viikolla opiskelija suorittaa 10 - 15 tehtävää, joilla testataan oppimista. Kurssin lopuksi opiskelija suorittaa projektimaisen tehtävän.
 
@@ -24,12 +23,24 @@ Kurssin sisältö:
 * Ylikuormitettujen operaattoreiden, itse määriteltyjen operaattoreiden, poikkeusten määrittely
 * STL: n perusteet.
 
-Kurssin sisällön kehittämisessä on hyödynnettyä Ciscon Networking Academyn C++ programing kurssin materiaalia
+Kurssin sisällön kehittämisessä on hyödynnettyä Ciscon Networking Academyn C++ programing kurssin materiaalia sekä MIT:n Introduction to C++ kurssia
+
+**Kurssimateriaalin lähteet:**
+
+> Jesse Dunietz, Geza Kovacs, and John Marrero. 6.096 Introduction to C++. January IAP 2011. Massachusetts Institute of Technology: MIT OpenCourseWare, https://ocw.mit.edu. License: Creative Commons BY-NC-SA.
+
+>Cisco Networking Acedemy: CPA Programming Essentials in C++
+
+**Lisämateriaaleja:**
+
+> C++ Language Tutorial (http://cplusplus.com/doc/tutorial/)
+
+> Wikiversity: Introduction to C++ (https://en.wikiversity.org/wiki/C%2B%2B/Introduction)
 
 
 | Materiaalin osa  |      Aihealue  
 |----------|-------------|
-| 1| C++ perusteet ja käännösympäristön asentaminen |
+| 1| C++ perusteet ja käännösympäristön asentaminen, perusrakenteet |
 | 2| ... |
 | 3| ... |
 | 4| ... |
