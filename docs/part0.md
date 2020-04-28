@@ -31,17 +31,22 @@ Kurssin sisällön kehittämisessä on hyödynnettyä Ciscon Networking Academyn
 |----------|-------------|
 | 1| C++ perusteet ja käännösympäristön asentaminen |
 | 2| ... |
-=======
-## Part 0 - Learning goals
-
-The list below does not include everything, but exists to give a guideline for students, what to expect each week. This list may extend as the course goes on.
-
-| Part   |      Goal  
-|----------|-------------|
-| 1| 1st week goals |
-| 2| 2nd week goals |
->>>>>>> d32adfbf4ce2f71565ba4e8ae52d1b3827b4cbe8
 | 3| ... |
 | 4| ... |
 | 5| ... |
 | 6| ... |
+
+## Part 0 - Arviointi
+
+| Suoritetut tehtävät  |      Arvosana  
+|----------|-------------|
+| 70% | 1 |
+| 75% | 2 |
+| 80% | 3 |
+| 90% | 4 |
+| 95% | 5 |
+
+## Part 0 - Keskustelu
+
+Liity kurssun keskustelualueelle Telegrammissa:
+https://t.me/joinchat/QuL9UUuxayL-R9l515p45A

@@ -62,6 +62,51 @@ Tällä kurssilla käytetään ohjelmointiympäristönä Qt-Creator sovellusta, 
 
 > Tämän kurssin esimerkit on toteutettu Qt-Creatorilla, mutta opiskelija saa halutessaan käyttää muutakin IDE:tä tai muita kääntäjiä, kuitenkaan näille ei voida kurssin aikana antaa erillistä ohjausta
 
+## Osa 1 - osio 3, Projektin luominen
+
+Kun Qt-Creator on käynnistynyt valitse valikosta: 
+`”File -> New File of Project…”`
+Avautuvasta dialogista valitse 
+
+`”Non-Qt Project”` sekä 
+`”Plain C++ Application” `
+näin saat luotua uuden tyhjän projektin. 
+Valitse lopuksi `”Choose…”`
+
+![](2020-04-27-21-51-53.png)
+
+Anna projektille nimi: `”Eka projekti”`, tallennuspaikkana voit käyttää haluamaasi osoitetta. Qt-Creator luo tähän kansioon oman alikansion projektille. Kun tämä tehty `"Valitse next"`
+
+> Projektit voi tallentaa esim. käyttäjän omaan Documents-kansioon ja luoda sinne Cplusplus nimisen kansion jonne luo kaikki projektit. Kannattaa kuitenkin suosi projektikansion nimessä polkua jossa ei ole välilyöntejä.
+
+![](2020-04-27-21-58-13.png)
+
+Seuraavassa dialogissa valitaan kääntäjä, tässä käytetään `”qmake” `ja paina `”Next”`
+
+![](2020-04-27-22-00-02.png)
+
+Kits-osiossa valitaan pelkkä `”Desktop”`, riippuen asennuksesta voi muitakin vaihtoehtoja olla saatavilla.
+
+![](2020-04-27-22-00-49.png)
+
+Summary osioon ei tehdä muutoksia, ja paina lopuksi `”Finish”`
+
+![](2020-04-27-22-01-24.png)
+
+Nyt sinulla pitäisi olla ensimmäinen ohjelma ja seuraava näkymä edessäsi. 
+
+![](2020-04-28-09-19-59.png)
+
+Kyseessä on Qt-Creatorin perusnäkymä. Tässä näkymässä:
+-	Vasemmalla näkyvät projektin tiedostot, nyt meillä on vain yksi tiedosto main.cpp, kun haluamme kääntää suoritettavan sovelluksen tämä tiedosto lähetetään kääntäjälle. Meidän ei tarvitse huolehtia miten tämä tapahtuu, vaan IDE tekee sen puolestamme. Lisäksi näet .pro loppuisen tiedoston, nämä ovat Qt-Cretorin omia tiedostoja ja niillä hallitaan projektia, tämän kurssin aikana ei näihin tiedostoihin perehdytä.
+-	Alhaalla näet ikkunan, jonne tulevat ilmoitukset kääntäjältä tai IDE:ltä.
+-	Suurimman alan täyttää kuitenkin itse koodieditori, tähän kohtaan tulemme jatkossa kirjoittamaan omaa koodia. Tähän aukeaa aina .cpp tai .h tiedoston sisältö riippuen siitä minkä olet avannut.
+-	Aivan vasemmasta alakulmasta löydät vihreä ”Play”-painikkeen kun painat sitä lähdekoodisi käännetään ja suoritetaan, ja sinun pitäisi saada seuraava ikkuna.
+
+![](2020-04-28-09-21-41.png)
+
+Nyt sinulla on toiminnassa toimiva ympäristö, jossa pääset kehittämään omia C++ -ohjelmiasi.
+
 ## Osa 1 - osio 3, 1. C++ ohjelma
 
 ## Osa 1 - Tehtävät
@@ -69,8 +114,3 @@ Tällä kurssilla käytetään ohjelmointiympäristönä Qt-Creator sovellusta, 
 Lataa tehtävät osoitteesta:
 
 Tässä vaiheessa sinun ei tarvitse huolehtia muusta kuin että saat tulostumaan konsoliin itsellesi 10 x kertaa "OK"
-=======
-## Part 1
-
-Here is another chapter.
->>>>>>> d32adfbf4ce2f71565ba4e8ae52d1b3827b4cbe8
