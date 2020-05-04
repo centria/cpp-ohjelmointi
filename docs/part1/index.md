@@ -4,6 +4,7 @@ permalink: /part1/
 nav_order: 3
 published: true
 has_children: true
+has_toc: true
 ---
 
 ## Osa 1 - C++ lyhyesti
