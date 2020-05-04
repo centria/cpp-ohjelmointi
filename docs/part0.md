@@ -1,7 +1,7 @@
 ---
-title: "Basics information"
+title: "Kurssin perustiedot"
 permalink: /part0/
-nav_order: 2
+nav_order: 1
 published: true
 ---
 
