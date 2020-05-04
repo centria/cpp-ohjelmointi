@@ -1,7 +1,7 @@
 ---
-title: "Käännösympäristön asentaminen"
-permalink: /part1/1/
-nav_order: 1
+title: "1. C++ ohjelma"
+permalink: /part1/2/
+nav_order: 2
 published: true
 ---
 
