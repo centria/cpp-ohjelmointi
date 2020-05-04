@@ -3,6 +3,7 @@ title: "Käännösympäristön asentaminen"
 permalink: /part1/1/
 nav_order: 1
 published: true
+parent: "C++ lyhyesti"
 ---
 
 ## Osa 1 - C++ lyhyesti
