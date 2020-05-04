@@ -1,7 +1,7 @@
 ---
-title: "C++ lyhyesti"
-permalink: /part1/
-nav_order: 3
+title: "Part 1"
+permalink: /part1/1/
+nav_order: 1
 published: true
 ---
 
