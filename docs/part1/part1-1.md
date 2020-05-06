@@ -14,7 +14,7 @@ Tällä kurssilla käytetään ohjelmointiympäristönä Qt-Creator sovellusta, 
 
 Asennusohje: [asennusohje.pdf](/assets/qt_asennus.pdf)
 
-## Projektin luominen
+### Projektin luominen
 
 Kun Qt-Creator on käynnistynyt valitse valikosta: 
 _**”File -> New File of Project…”**_

@@ -11,20 +11,20 @@ parent: "C++ lyhyesti, 1. ohjelma ja perusrakenteet"
 
 Ohjelmamme ei nyt varsinaisesti tee vielä mitään, tehdään siihen muutamia muutoksia. Mutta aluksi muutamia perusteita joiden varaan C++ -ohjelma rakentuu.
 
-**Lauseet ja lausekkeet**
+### Lauseet ja lausekkeet
 
 - Lause on koodin yksikkö, joka tekee jotain
 - Lauseke on lause, jolla on arvo - esimerkiksi "Hello World", 42, 4 + 2.
 
 Jokainen lause ei välttämättä ole lauseke, sillä lause ei välttämättä tuota arvoa, kuten _**#include**_
 
-**Aritmeettiset operaattori**
+### Aritmeettiset operaattorit
 
 Voimme suorittaa aritmeettisiä laskelmia operaattoreiden avulla. Operaattorit toimivat osana lausekkeita, ja ne tuottavat uuden lausekkeen kunnes lopullinen arvo muodostuu. Esimerkiksi (8 + 10) / 2 lauseke sisältää operaattoreita ja tuottaa lopulta tuloksen 9. Voisit sijoitaa _**(8 + 10) / 2**_ , korvaamaan _**"Hello World"**_ tekstin edellisessä esimerkissämme ja saisit ruudulle tulostumaan arvon 9.
 
 Lausekkeessa _**(8 + 10) / 2**_, ovat operaattorit + sekä / ja operandit 8, 10, 2. Huomaa että C++:san laskujärjestys noudattaa matematiikan sääntöjä.
 
-Operaattorityyypit:
+**Operaattorityyypit:**
 
 - Matemaattiset: +, -, *, /, ja sulkeet (), toimivat kuten ne toimivat muissa ohjelmointikielissä tai matematiikassa. Jakojäännöksen voi toteuttaa % operaattorilla, esim 6 % 5 tuottaa tuloksen 1
 
@@ -38,7 +38,7 @@ Operaattorityyypit:
     - << >> siirtävät bittejä sanan sisällä
     - ~ yhden komplementti 0-> 1 ja 1-> 0
 
-**Tietotyypit**
+### Tietotyypit
 
 Jokainen lauske päättyy tulokseen jossa arvo jonka lauseke tuottaa edustaa jotain tietotyyppiä. Näin koodia suorittava suoritin tietää miten muistissa olevaa tietoa pitäisi tulkita. 
 
@@ -66,6 +66,8 @@ Sama koskee myös liukuluku tyyppejä, C++:ssä on mahdollista käyttää _**flo
 Lisää tietoa tietotyypeistä löydät esim: https://www.tutorialspoint.com/cplusplus/cpp_data_types.htm
 
 
+### Operaatiot ja tietotyypit
+
 Operaatiot voidaan toteuttaa vain niillä tietotyypeillä, jotka ovat tuettuina operaation toimesta. Esimerkiksi kokonaisluvusta ei voida ottaa jakojäännöstä liukuluvulla.
 
 C++ muuttaa eri tilanteissa automaattisesti tyyppiä tarvittaessa. Jos operaattorin eri puolilla käytetään eri tietotyyppiä, laajennetaan suppeampi/pienempi tyyppi. Laajentamista on havainnollistettu seuraavassa:
@@ -92,6 +94,9 @@ Tuottaa tuloksen 0.5, samoin kuin
 
 ```
 
+
+### Numerojärjestelmät
+
 C++:ssa kuten muissakin ohjelmointikielissä käytetään numerojärjestelmää jossa kantalukuna on 10, jos haluat käyttää muuta numerojärjestelmää kuten 8 tai 16, se onnistuu seuraavasti:
 
 Jos haluat esittää luvun numerojärjestelmässä jossa 8 on kantaluku, kirjoita numeron ensimmäiseksi numero 0. Tämä jälkeen numero 8-järjestelmässä:
@@ -103,14 +108,14 @@ Vastaavasti hexagonaalijärjestelmässä, missä kantaluku on 16, luvut esitetä
 _**esim. 0x123 vastaa kymmenjärjestelmän lukua 291**_
 
 
-> **Oppimistehtäviä:**
+### Oppimistehtäviä:
 
 - Testaa erilaisia matemaattisia laskutoimituksia korvaavammalla seuraavassa lausekkeessa X, jolloin matemaattisella lauskeella: _**cout << X << endl;**_ 
 esim. _**cout << 2/4 << endl;**_ 
 
 - Testaa myös tulosta mistä oktagonaali ja hexagonaali luvuilla
 
-**Muuttujat**
+## Muuttujat
 
 Jotta voisimme järkevästi käyttää arvoja, emmekä laskea niitä aina uudestaan, tarvitsemme tavan jolla säilytämme ja nimeämme niitä.  Tätä arkoitusta varten on olemassa erityisiä "laatikoita", joita kutsutaan muuttujiksi. Kuten nimi muuttuja viittaava, säiliön sisältöä voidaan muuttaa (melkein) millään tavalla tahansa. 
 
@@ -171,13 +176,13 @@ int autojen_lkm, mopojen_lkm, pyorien_lkm;
 
 **HUOM!** C++:ssa muuttujia ei alusteta (muutamaa poikkeusta lukuunottamatta), joten niiden arvoksi tulee se muistipaikan sisältö johon ne osoittavat. 
 
-**Varatut sanat (keywords)**
+### Varatut sanat (keywords)
 
 C++:ssa on jonkinverran varattuja sanoja, näitä sanoja ei voi käyttää yksinään muuttujan tai funktion nimessä. Seuraavassa kuvassa on listattuna nämä sanat.
 
 ![](/assets/images/keywords.png)
 
-**Syötteen pyytäminen käyttäjältä**
+### Syötteen pyytäminen käyttäjältä
 
 Komentoriviohjelmissa voidaan käyttäjältä pyytää syöte käyttämällä iostream-kirjaston _**cin -funktiota**_. Tämä funktio toimii kuten _**cout**_, mutta sille annetaan muuttuja, johon käyttäjän syöttämä arvo sijoitetaan. 
 
@@ -199,7 +204,8 @@ int main ()
 
 ```
 
-**Vakiot**
+### Vakiot
+
 Vakio on lauseke jolla on määritetty (vakio) arvi0. Vakiot voidaan jakaa seuraaviin tyyppeihin:
 - Literaalit, esim, luvut, tekstit, tottuusarvot
 - Määritellyt vakiot, käyttäjän määrittelemät vakiot joita ei sijoiteta muuttujiin. Nämä määritellään _**#define**_ esikääntäjä lausekkeella. Ja esikääntä korvaa ilmentymät vakiolla kun löytää sen koodin seasta. 
@@ -229,7 +235,7 @@ cout << circle << endl;
 
 ```
 
-**Vasemmat ja oikeanpuoleiset arvot (left hand side value, L-values, R-values)**
+### Vasemmat ja oikeanpuoleiset arvot (left hand side value, L-values, R-values)
 
 Vasemman ja oikeanpuoleisten arvojen ymmärtäminen, ei C++:san osaamistavoitteiden kannalta ole merkityksellisiä. Mutta niiden ymmärtämisestä on hyötyä kun tulkitaan kääntäjän virheilmoituksia.
 
@@ -242,7 +248,7 @@ Periaatteessa vasemmanpuoleisia arvoja ovat sellaiset lauseet joihin voidaan sij
 - var + 5 
 - float / 3.00
 
-**Lukujen kasvatus ja pienentäminen**
+### Lukujen kasvatus ja pienentäminen
 
 Kokonaislukuja voidaan kasvattaa ja supistaa _**++**_ sekä _**--**_ operaattoreilla
 
@@ -266,7 +272,7 @@ a = 1;
 cout << "2. A:n arvo:" << ++a << endl; //Tulostaa 2
 ```
 
-**Sijoittamisoperaatorit**
+### Sijoittamisoperaatorit
 
 Käytimme aikaisemmin sijoittamisoperaatiota
 
@@ -283,7 +289,7 @@ Sijoittamisoperaatio voidaan myös lyhentää seuraavasti:
 - *= ,kerrotaan muutuja toisella arvolla (c = a */* b)
 
 
-**Tyyppimuunnokset**
+### Tyyppimuunnokset
 
 Tyyppimuunnoksia käytetään vaihtamiseen tietotyyppien välillä. Englanniksi niitä kutsutaan nimellä _**cast**_ .  Tyyppimuunnokset ovat implisiittisiä
 kun siirrytään pienemmästä tietotyypistä suurempaan tai samankokoiseen tietotyyppiin (esim. float doubleksi tai int floatiksi). Tämä tarkoitaa että muutos tapahtuu automaattisesti, eikä sitä tarvitse määritellä,
@@ -297,7 +303,7 @@ long l = s; // eksplisiittistä muunnosta ei tarvita
 float y = s + 3.4; // kääntäjä toteuttaa implisiittisen muunnoksen short-arvolle
 ```
 
-**Suoritusjärjestykset**
+### Suoritusjärjestykset
 
 Kuten artimetiikassa, C++:ssa on järjestys missä operaatiot suoritetaan. Laskujärjestys seuraa pitkältä matemaattisia laskusääntöjä.
 
@@ -319,7 +325,7 @@ Kuten artimetiikassa, C++:ssa on järjestys missä operaatiot suoritetaan. Lasku
 | 14. | = += -= *= /= %=, jne... | Sijoitusoperaatiot
 | 15. | , | Pilkkuoperaatiot
 
-**Kommentointi**
+### Kommentointi
 
 C++:ssa on seuraavat kommentointi ominaisuudet. Kääntäjä ei huomioi tekstiä, joka on kommentoitua. 
 
@@ -336,7 +342,7 @@ _***/**_ merkit päättävät pitkän kommentin.
 usealle riville */
 
 ```
-> **Oppimistehtäviä:**
+## Oppimistehtäviä:
 
 - Lisää esimerkkitehtävään kommentti joka on usemman rivin mittainen ja kertoo kuka koodin on tehnyt sekä _**return 0;**_ lauseen perään yhden rivin kommentti, jossa kuvataan miksi pitää palauttaa 0
 
