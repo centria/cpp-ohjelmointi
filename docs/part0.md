@@ -91,5 +91,4 @@ Tehtävä arvostellaan arvosanalla 0 - 5, mikä muodostaa myös kurssin arvosana
 
 ## Keskustelu
 
-Liity kurssin keskustelualueelle Telegrammissa:
-https://t.me/joinchat/QuL9UUuxayL-R9l515p45A
+Centrian Averko osallistujen keskustelukanava löytyy Optimasta
