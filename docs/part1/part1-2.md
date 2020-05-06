@@ -3,7 +3,7 @@ title: "1. C++ ohjelma"
 permalink: /part1/2/
 nav_order: 2
 published: true
-parent: "C++ lyhyesti ja 1. ohjelma"
+parent: "C++ lyhyesti, 1. ohjelma ja perusrakenteet"
 ---
 
 ## 1. C++ ohjelma

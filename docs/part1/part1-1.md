@@ -3,7 +3,7 @@ title: "Käännösympäristön asentaminen"
 permalink: /part1/1/
 nav_order: 1
 published: true
-parent: "C++ lyhyesti ja 1. ohjelma"
+parent: "C++ lyhyesti, 1. ohjelma ja perusrakenteet"
 ---
 
 ## Qt-Creator IDE:n asentaminen
