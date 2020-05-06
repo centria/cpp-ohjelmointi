@@ -90,5 +90,4 @@ Tehtävä arvostellaan arvosanalla 0 - 5, mikä muodostaa myös kurssin arvosana
 
 
 ## Keskustelu
-
 Centrian Averko osallistujen keskustelukanava löytyy Optimasta
