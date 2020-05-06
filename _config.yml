@@ -9,3 +9,5 @@ search_enabled: true
 search_tokenizer_separator: /[\s/]+/
 
 footer_content: "Copyright &copy; 2020 YOUR NAME. More information about <a href=\"/license\">licensing here.</a>"
+
+future: true
