@@ -52,6 +52,9 @@ Kurssin sisällön kehittämisessä on hyödynnettyä Ciscon Networking Academyn
 | Viikko 10 | ... |
 | Viikko 11 - 12 | Projektin totetuttaminen |
 
+Kurssin materiaalit julkaistaan viikoittain, jokaisen viikon perjantaihin mennessä.
+Osana materiaaleja on tehtäviä, jotka on hyvä tehdä sekä mallivastaukset, tehtäviä ei tarvitse palauttaa.
+
 ## Arviointi
 
 Opiskelija suorittaa kurssin lopuksi tehtävän, jonka perustella kurssi arvioidaan, tehtävä suorittaminen vaatii n. 20h opiskelijan työtä. Projektitehtävässä opiskelija hyödyntää kattavasti kurssilla opittuja asioita. 

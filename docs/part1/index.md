@@ -1,5 +1,5 @@
 ---
-title: "C++ lyhyesti"
+title: "C++ lyhyesti, 1. ohjelma ja perusrakenteet"
 permalink: /part1/
 nav_order: 3
 published: true
