@@ -48,7 +48,7 @@ Konekielinen tiedosto on binäärikoodia, ja sen muodostuminen riippuu siitä, m
 Kääntäminen ja kääntäjä eivät sisälly tämän kurssin aihealueeseen, mutta seuraavassa on kuvattu kääntäjän toimintaa yleisesti. Lisätietoja kääntäjästä voi lukea esim.
 https://binarymove.com/2018/12/01/how-c-works-ides-compilers-linkers/
 
-![Kääntäjä](/assets/images/compiler.png)
+![Kääntäjä toiminta](/assets/images/compiler.png)
 _Kuva 2. Kääntäjän toiminta_
 
 C++ ohjelmaa kirjoitettaessa kääntäjälle toimitetaan vähintään .cpp lähdekoodi, jonka kääntäjä tulkkaa konekieliseksi. Laajemmissa sovelluksissa kääntäjälle toimitetaan useita _lähdekooditiedostoja (.cpp)_ tiedostoja, sekä niin liittyvät _otsikkotiedostot (header file, .h)_. Otsikko- ja lähdekooditiedostoista puhutaan myöhemmin lisää. Kääntäjän toimintaa yleisesti on esitetty seuraavassa kuvassa.
