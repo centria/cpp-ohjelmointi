@@ -119,7 +119,7 @@ esim. _**cout << 2/4 << endl;**_
 
 Jotta voisimme järkevästi käyttää arvoja, emmekä laskea niitä aina uudestaan, tarvitsemme tavan jolla säilytämme ja nimeämme niitä.  Tätä arkoitusta varten on olemassa erityisiä "laatikoita", joita kutsutaan muuttujiksi. Kuten nimi muuttuja viittaava, säiliön sisältöä voidaan muuttaa (melkein) millään tavalla tahansa. 
 
-![](/assets/images/muuttujat.png)
+![](../../assets/images/muuttujat.png){:class="img-responsive"}
 _Muuttujat, kuva Cisco Networking Academy_
 
 C++:ssa jokaiselle muuttujalle tulee määrittää:
@@ -180,7 +180,7 @@ int autojen_lkm, mopojen_lkm, pyorien_lkm;
 
 C++:ssa on jonkinverran varattuja sanoja, näitä sanoja ei voi käyttää yksinään muuttujan tai funktion nimessä. Seuraavassa kuvassa on listattuna nämä sanat.
 
-![](/assets/images/keywords.png)
+![](../../assets/images/keywords.png){:class="img-responsive"}
 
 ### Syötteen pyytäminen käyttäjältä
 

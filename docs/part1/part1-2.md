@@ -10,7 +10,7 @@ parent: "C++ lyhyesti, 1. ohjelma ja perusrakenteet"
 
 Ensimmäinen C++ -ohjelmamme näyttää siis seuraavalta:
 
-![](/assets/images/1_ohjelma.png)
+![](../../assets/images/1_ohjelma.png){:class="img-responsive"}
 
 C++ ohjelman rakenne koostuu seuraavista osista
 
@@ -48,5 +48,5 @@ _**#include-komennolla**_ voidaan hakea tiedostoja joko käyttäjän/projektin o
 > - Lisää \\n sanan _**Hello**_ jälkeen, mitä tapahtuu? Testaa myös seuraavat \\t, \\\\, \\"
 
 
-> Jos kirjoitat koodia joka ei ole kelvollinen C++ -kääntäjälle, QtCreator ilmoittaa siitä virheellä:![](/assets/images/virhe_idessa.png)
+> Jos kirjoitat koodia joka ei ole kelvollinen C++ -kääntäjälle, QtCreator ilmoittaa siitä virheellä:![](../../assets/images/virhe_idessa.png){:class="img-responsive"}
 > Näet miltä riviltä virhe löytyy sekä minkälainen virhe on kyseessä. Tuplaklikkaa riviä ja IDE avaa sinulle sen rivin jolla virhe on.
