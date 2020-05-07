@@ -14,7 +14,7 @@ kuvaus, tämä löytyy osoitteesta: https://www.geeksforgeeks.org/history-of-c/
 
 
 
-![C++ historia](assetss/images/History-of-C.jpg)
+![C++ historia](assets/images/History-of-C.jpg)
 
 _Kuva 1. C++ Historia (GeeksForGeeks)_
 
