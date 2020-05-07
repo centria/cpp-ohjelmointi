@@ -30,13 +30,13 @@ Lausekkeessa _**(8 + 10) / 2**_, ovat operaattorit + sekä / ja operandit 8, 10,
 
 - Loogiset: 
     - && (ja, and)
-    - || (tai, or)
+    - \|\| (tai, or)
     - ! (not, epätosi)
 
 - Bittien käsittely: 
-    - & | ^ vertaavat alkioita bitti kerrallaan ja palauttavat
-    - << >> siirtävät bittejä sanan sisällä
-    - ~ yhden komplementti 0-> 1 ja 1-> 0
+    - \& \| \^ vertaavat alkioita bitti kerrallaan ja palauttavat
+    - \<\< \>\> siirtävät bittejä sanan sisällä
+    - \~ yhden komplementti 0-> 1 ja 1-> 0
 
 ### Tietotyypit
 
@@ -72,7 +72,7 @@ Operaatiot voidaan toteuttaa vain niillä tietotyypeillä, jotka ovat tuettuina 
 
 C++ muuttaa eri tilanteissa automaattisesti tyyppiä tarvittaessa. Jos operaattorin eri puolilla käytetään eri tietotyyppiä, laajennetaan suppeampi/pienempi tyyppi. Laajentamista on havainnollistettu seuraavassa:
 
-```
+```c++
 4/8
 
 Tässä tapauksessa toteutetaan kokonaislukujen 4 ja 8 jakolasku, jolloin vastaukseksi saadaan 0. Tämä sen vuoksi, että molemmat laskettavat ovat kokonaislukuja ja tuloksen kokonaisluku osuus on 0. Vaikka lopputulos liukulukuna olisi 0.5 niin C++:ssa loppuosa katkaistaan pois kun tehdään kokonaisluvuilla jakamista.
@@ -131,7 +131,7 @@ Periaatteessa arvo voidaan jäättää määrittämättä, tällöin arvo on sat
 
 Yksinkertainen esimerkki muuttujan käytöstä, on seuraavassa. Määrittelemme _(declaration)_ kokonaisluku _**(int)**_ tyyppisen muuttujan, ja annamme sille nimen _**x**_ sekä alustamme _(initialization)_ arvoksi laskutoimituksen _**4 + 2**_ tuloksen. Arvo sijoitetaan muuttujaan aina _**=**_ operaattorilla. 
 
-```
+```c++
 int x = 4 + 2;
 cout << "X:n arvo on: " << x << endl;
 
@@ -168,7 +168,7 @@ Exchange Rate (sisältää välilyönnin)
 
 Voit määritellä kerralla yhden muuttujan tai monta saman tietotyypin muuttujaa.
 
-```
+```c++
 //Määritellään kolme int -tyyppistä muuttujaa
 int autojen_lkm, mopojen_lkm, pyorien_lkm;
 
@@ -188,7 +188,7 @@ Komentoriviohjelmissa voidaan käyttäjältä pyytää syöte käyttämällä io
 
 Esimerkiksi seuraava kysyy käyttäjältä x:n arvoa:
 
-```
+```c++
 #include < iostream >
 using namespace std;
 
@@ -211,7 +211,7 @@ Vakio on lauseke jolla on määritetty (vakio) arvi0. Vakiot voidaan jakaa seura
 - Määritellyt vakiot, käyttäjän määrittelemät vakiot joita ei sijoiteta muuttujiin. Nämä määritellään _**#define**_ esikääntäjä lausekkeella. Ja esikääntä korvaa ilmentymät vakiolla kun löytää sen koodin seasta. 
 
 Määritelty vakio toimii seuraavasti.
-```
+```c++
 #define PII 3.1415
 #define NEWLINE ’\n’
 
@@ -227,7 +227,7 @@ Määritellyillä vakiolla on muutakin käyttöä, mutta niihin palataan myöhem
 
 - Esitellyt vakiot (const): ohjelmoija voi esitellä muuttujan vakiona, jolloin sen arvoa ei voi vaihtaa.
 
-```
+```c++
 const int r = 100;
 r = 200; //Aiheuttaa virheen
 circle = 2 * PI * r; // circle = 2 * 3.14159 * r;
@@ -265,7 +265,7 @@ a++ palauttaa aluksi a:n arvon ja sen jälkeen kasvattaa muuttujan arvoa.
 a-- palauttaa aluksi a:n arvon ja sen jälkeen pienentää muuttujan arvoa.
 
 
-```
+```c++
 int a = 1;
 cout << "1. A:n arvo:" << a++ << endl; //Tulostaa 1
 a = 1;
@@ -276,7 +276,7 @@ cout << "2. A:n arvo:" << ++a << endl; //Tulostaa 2
 
 Käytimme aikaisemmin sijoittamisoperaatiota
 
-```
+```c++
 int a = 1;
 int b = 2;
 int c = a + b;
@@ -296,7 +296,7 @@ kun siirrytään pienemmästä tietotyypistä suurempaan tai samankokoiseen tiet
 
 Tyyppimuunnokset on yleensä ilmoitettava (eksplisiittinen muunnos) kun laajempaa tietotyyppiä supistetaan (esim. float to int), muulloin kääntäjä antaa virheen.
 
-```
+```c++
 int x = (int) 5.0; // vaatii eksplisiittisen muunnoksen
 short s = 3;
 long l = s; // eksplisiittistä muunnosta ei tarvita
