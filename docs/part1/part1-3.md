@@ -335,7 +335,7 @@ _**//**_ näiden merkkien jälkeen rivillä oleva loppu teksti on kommentoitu te
 _**/***_ merkki aloitaa vastaavasti kommentin, joka voi olla useita rivejä
 _***/**_ merkit päättävät pitkän kommentin. 
 
-```
+```c++
 // Hei tässä on lyhyt kommentti
 
 /* Tämä kommentti on pitkä ja voi jakaantua
