@@ -13,7 +13,6 @@ C++ on tehokas ohjelmointikieli, jota käytetään matalantason ohjelmien rakent
 kuvaus, tämä löytyy osoitteesta: https://www.geeksforgeeks.org/history-of-c/
 
 
-
 ![C++ historia](assets/images/History-of-C.jpg)
 
 _Kuva 1. C++ Historia (GeeksForGeeks)_
