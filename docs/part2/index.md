@@ -105,7 +105,7 @@ bool totuus_arvo = false;
 ### if rakenne
 
 if -lause rakentuu seuraavasti.
-``` C++
+```c++
 if(ehto)
 {
     lause;
@@ -119,13 +119,13 @@ _Kuva 1. If-rakenne (https://www.javascripttutorial.net)_
 
 Ehtona toimii lause, joka tuottaa arvon true tai false. Jos ehto on true if -lohkon sisällä olevat lauseet suoritetaan. Muuten if -lohkon osuus ohitetaan. Jos if -lohkossa on vain yksi lause se voidaan kirjoittaa myös muotoon, jossa { } -merkit jätetään pois.
 
-``` C++
+```c++
 if(ehto)
     lause;
 ```
 
 If-else lause taas kirjoitetaan muotoon.
-``` C++
+```c++
 if(ehto)
 {
     lauseA1;
@@ -147,7 +147,7 @@ _Kuva 2. If-else rakenne (https://www.javascripttutorial.net)_
 
 Jos ehto on tosi suoritetaan if-lohkon sisällä olevat lauseet A1 ja A2, jne... , jos taas ehto on epätosi suoriteaan lauseet B1 ja B2, jne... Jälleen jos jommassakummassa lohkossa on vain yksi lause voidaan if-else kirjoittaa muotoon.
 
-``` C++
+```c++
 if(ehto)
     lauseA;
 else
@@ -170,7 +170,7 @@ else
 
 If-else ehtorakenteessa valitaan siis suoritettava lohko yhden ehdon mukaisesti. Laajennuksen if-else lohkoon tuo if-else if-else rakenne, jolloin voidaan testata useita ehtoja.
 
-``` C++
+```c++
 if(ehtoA)
 {
     lauseA1;
@@ -315,7 +315,7 @@ ja for.
 
 while-loopin syntaksi on lähellä if-lauseen syntaksia.
 
-``` C++
+```c++
 while(ehto)
 {
     lause1
@@ -331,7 +331,7 @@ _Kuva 4. while -rakenne (http://www.brentwoodhigh.com/)_
 while-silmukassa olevia lausekkeita suoritetaan siis niin kauan kuin ehto täyttyy. while-silmukan kohdalla on mahdollista, että lohkon sisällä olevia lauseita ei suoriteta kertaakaan. HUOM! jos while silmukan sisällä on vain yksi lause, sitä ei tarvitse laittaa kaarisulkeiden sisään.
 
 Esimerkki while-silmukasta
-``` C++
+```c++
 
 int x = 0;
 int y = 1;
@@ -347,7 +347,7 @@ cout << "Lopullinen x:" << x " ja y:" << y << endl;
 
 do-while -silmukalla voidaan varmistaa, että silmukassa olevat lausekkeet suoritetaan ainakin kerran. Sen syntaksi on seuraava:
 
-``` C++
+```c++
 do
 {
     statement1
@@ -363,7 +363,7 @@ do while -silmukka voidaan havainnollistaa seuraavasti.
 _Kuva 5. do while -rakenne (http://www.brentwoodhigh.com/)_
 
 Esimerkki do while-silmukasta
-``` C++
+```c++
 int x = 0;
 
 do
@@ -382,7 +382,7 @@ cout << "Lopullinen x:" << x  << endl;
 
 for -silmukan syntaksi on lähellä while -loopin syntaksia.
 
-``` C++
+```c++
 for(alustukset; ehto; arvojen muunto)
 {
 statement1
@@ -466,7 +466,7 @@ ehto ? arvo jos tosi : arvo jos epätosi
 
 Seuraava if-else lause:
 
-``` C++
+```c++
 if(a > b)
     tulos = x;
 else
@@ -475,7 +475,7 @@ else
 ```    
 
 voidan kirjoittaa 
-``` C++
+```c++
 tulos  = a > b ? x : y;
 ```  
 
@@ -485,7 +485,7 @@ break -lausekeella voidaan poistua mistä tahansa ehto- tai silmukkarakenteesta 
 
 Tätä voidaan käyttää yksinkertaistamaan koodia, jos esimerkiksi toteutamme ikuisen silmukan while -silmukalle. Mutta haluammekin poistua silmukasta tietyllä arvolla.
 
-``` C++
+```c++
 int i = 1;
 while ( true )
 {
