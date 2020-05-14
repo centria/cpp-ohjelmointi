@@ -51,7 +51,7 @@ Loogisia operaatioita voidaan yhdistää relaatio-operaatioiden kautta. Näin vo
 | Operaattori | Tarkoitus | Esimerkki
 |----------|-------------|-------------|
 | && | JA / AND | x > 5 && y > 5 |
-| \|\| | TAI / OR | x > 5 || y > 5 |
+| \|\| | TAI / OR | x > 5 \|\| y > 5 |
 | ! | EI / NOT | !x |
 
 Seuraavassa taulukossa on havainnollistettu loogiste operaatioiden tuottamia arvoja
@@ -507,8 +507,7 @@ continue -lauseke on sukua break -lausekkeelle, continue -lausekkeen kohdalla si
 
 Esimerkiksi jos haluamme tulostaa parilliset luvut.
 
-```C++
-
+```c++
 for(int i = 0; i <= 10; ++i)
 {
 
