@@ -78,7 +78,7 @@ Seuraavassa taulukossa on havainnollistettu loogiste operaatioiden tuottamia arv
 
 Muutama esimerkki loogisten operaatioiden ja relaatio-operaatioiden käytöstä
 
-```C++
+```c++
 int x = 10;
 int y = 5;
 
@@ -91,7 +91,7 @@ int y = 5;
 
 Edellisissä lauseissa voitaisiin käyttää myös suoreen **Boolean (bool)** tyyppisiä muuttujia, koska ne sisältävät true tai false arvon. Toisaalta C++:ssa mikä tahansa muuttuja toimii totuusarvoja, sillä C++:ssa arvo **0 = false** ja nollasta eroava arvo on **true**. Tätä on havainnollistettu seuraavassa
 
-```C++
+```c++
 bool totuus_arvo = false;
 
 (0) → false
@@ -154,7 +154,7 @@ else
     lauseB;
 ```
 Esimerkki if-else rakenteesta
-```C++
+```c++
 int main() {
 int x = 6;
 int y = 2;
@@ -197,7 +197,7 @@ Tässä rakenteessa suoritetaan se ehto joka saa ensimmäisenä (ylhäältä-ala
 Esimerkki if-else if-else rakenteesta
 
 
-```C++
+```c++
 int main() {
 int x = 6;
 int y = 2;
@@ -216,7 +216,7 @@ else
 switch-case rakenne on toinen C++:ssan ehtorakenne, myös tässä ehtorakenteessa on mahdollista, että lauseita suoritetaan tai rakenne ohittaa lauseiden suorittamisen kokonaan. 
 
 
-```C++
+```c++
 switch(lause)
 {
 case vakio_arvo_1 :
@@ -248,7 +248,7 @@ Switch-case rakenteessa on mahdollista myös yhdistellä case-lauseita, niin ett
 
 Seuraavassa esimerkki switch-case rakenteesta:
 
-```C++
+```c++
 int main() 
 {
     int x = 6;
@@ -270,7 +270,7 @@ int main()
 
 HUOM! Hyvä käytäntö on käyttää **#define** määrittely kun määritellään switch case lauseenehtoja, näin päästään eroon ns. taikanumeroista ja koodista tulee luettavampi
 
-```C++
+```c++
 #define AUDI 1
 #define BMW  2
 #define CITROEN 3
@@ -400,7 +400,7 @@ _Kuva 6. for -rakenne (http://www.brentwoodhigh.com/)_
 
 Yksinkertainen for silmukka voisi olla seuraava.
 
-```C++
+```c++
 for(int x = 0; x < 10; x = x + 1)
 {
     cout << x << “\n”;
@@ -409,7 +409,7 @@ for(int x = 0; x < 10; x = x + 1)
 
 Jos muuttujan x korotus halutaan tehdä for -silmukan sisällä voidaan kirjoittaa seuraavasti
 
-```C++
+```c++
 for(int x = 0; x < 10;)
 {
     cout << x << “\n”;
@@ -418,7 +418,7 @@ for(int x = 0; x < 10;)
 ```
 Taas jos muuttuja onkin alustettu jo ennen for silmukkaan voidaan kirjoittaa seuraavasti
 
-```C++
+```c++
 int x = 0;
 for(;x < 10; x = x + 1)
 {
@@ -440,7 +440,7 @@ Käytä seuraavissa oman harkinnan mukaan, do-while, while tai for silmukkaa
 
 Kontrollirakenteita voidaan laittaa C++:ssa myös sisäkkäin esimerkiksi seuraavasti. 
 
-```C++
+```c++
 int main() 
 {
     for(int x = 0; x < 10; x = x + 1) 
