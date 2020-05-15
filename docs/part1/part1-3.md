@@ -3,7 +3,7 @@ title: "Perusrakenteita"
 permalink: /part1/3/
 nav_order: 3
 published: true
-parent: "C++ lyhyesti, 1. ohjelma ja perusrakenteet"
+parent: "Osa 1. C++ lyhyesti, 1. ohjelma ja perusrakenteet"
 ---
 
 

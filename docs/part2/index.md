@@ -1,10 +1,10 @@
 ---
-title: "Ohjausrakenteet"
+title: "Osa 2. Ohjausrakenteet"
 permalink: /part2/
 nav_order: 4
 published: true
-has_children: false
-has_toc: false
+has_children: true
+has_toc: true
 ---
 
 # Osa 2 - Ohjausrakenteita
@@ -290,20 +290,6 @@ int main()
 } 
 ```
 
-## Oppimistehtäviä:
-
-### if-else ja if-else if -else osio
-- Toteuta ohjelma joka kysyy käyttäjältä kaksi lukua käyttäen cin-fuktiota, vertaa lukuja jos luku a on kymmenen kertaa luku b, tulosta "Annoitpa ison luvun a", muussa tapauksessa tulosta "Aikalailla samansuuruiset luvut"
-
-- Toteuta ohjelma joka kysyy käyttäjältä ikää. Riippuen iästä, tulosta:
-0-3 vauva, 4-15 lapsi, 16-18 teini, 19-25 nuori aikuinen, yli 25 aikuinen
-
-### switch-case osio
-
-- Toteuta ohjelma joka testaa annetun luvun (0-9) ja tulostaa sen numeron tekstinä, jos käyttäjä antaa muun luvun tulostetaan tieto virheellisestä syötteestä
-
-- Toteuta ohjelma joka tulostaa annetun kuukauden päivien määrän. Ohjelma ei huomioi karkausvuotta
-
 
 ## Silmukkarakenteet
 
@@ -426,15 +412,7 @@ for(;x < 10; x = x + 1)
 }
 ```
 
-## Oppimistehtäviä
-
-Käytä seuraavissa oman harkinnan mukaan, do-while, while tai for silmukkaa
-
-1. Toteuta ohjelma joka tulosta 10 ensimmäisen luonnollisen numeron summan
-2. Toteuta ohjelma silmukoille joka testaa onko luku alkuluku, testi toteutetaan luvuille 1 ... 100
-3. Toteuta ohjelma joka selvittää kahden luvun suurimman yhteisen jakajan, tee toteutus silmukoilla
-
-## Lisämateriaali
+## Lisämateriaalia
 
 ### Kontrollirakenteiden sisäkkäisyys
 

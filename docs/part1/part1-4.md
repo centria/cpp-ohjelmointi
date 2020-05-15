@@ -3,7 +3,7 @@ title: "Tehtäviä"
 permalink: /part1/4/
 nav_order: 4
 published: true
-parent: "C++ lyhyesti, 1. ohjelma ja perusrakenteet"
+parent: "Osa 1. C++ lyhyesti, 1. ohjelma ja perusrakenteet"
 ---
 
 
