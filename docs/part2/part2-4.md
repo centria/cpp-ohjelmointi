@@ -31,5 +31,7 @@ Käytä seuraavissa oman harkinnan mukaan, do-while, while tai for silmukkaa
 5. Toteuta ohjelma joka selvittää kahden luvun suurimman yhteisen jakajan, tee toteutus silmukoilla
 
 Tehtäviä ei tarvitse palauttaa ja voit tarkastaa ne tiedostosta:
-TULOSSA
+https://github.com/centria/cpp-ohjelmointi-harjoitukset/blob/master/tehtava2_ehtorakenne.cpp
+https://github.com/centria/cpp-ohjelmointi-harjoitukset/blob/master/tehtava2_silmukat.cpp
+
 

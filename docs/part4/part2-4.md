@@ -2,7 +2,7 @@
 title: "Tehtäviä"
 permalink: /part2/1/
 nav_order: 1
-published: true
+published: false
 parent: "Osa 2. Ohjausrakenteet"
 ---
 
