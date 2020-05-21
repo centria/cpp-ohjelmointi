@@ -14,6 +14,8 @@ Tällä kurssilla käytetään ohjelmointiympäristönä Qt-Creator sovellusta, 
 
 Asennusohje: [asennusohje.pdf](../../assets/qt_asennus.pdf)
 
+Hyvä ohje löytyy myös: https://web.stanford.edu/class/cs106b/qt/
+
 ### Projektin luominen
 
 Kun Qt-Creator on käynnistynyt valitse valikosta: 
