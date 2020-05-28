@@ -18,17 +18,17 @@ parent: "Osa 2. Ohjausrakenteet"
 
 ### switch-case osio
 
-- Toteuta ohjelma joka testaa annetun luvun (0-9) ja tulostaa sen numeron tekstinä, jos käyttäjä antaa muun luvun tulostetaan tieto virheellisestä syötteestä
+3. Toteuta ohjelma joka testaa annetun luvun (0-9) ja tulostaa sen numeron tekstinä, jos käyttäjä antaa muun luvun tulostetaan tieto virheellisestä syötteestä
 
-- Toteuta ohjelma joka tulostaa annetun kuukauden päivien määrän. Ohjelma ei huomioi karkausvuotta
+4. Toteuta ohjelma joka tulostaa annetun kuukauden päivien määrän. Ohjelma ei huomioi karkausvuotta
 
 ### Silmukat
 
 Käytä seuraavissa oman harkinnan mukaan, do-while, while tai for silmukkaa
 
-3. Toteuta ohjelma joka tulosta 10 ensimmäisen luonnollisen numeron summan
-4. Toteuta ohjelma silmukoille joka testaa onko luku alkuluku, testi toteutetaan luvuille 1 ... 100
-5. Toteuta ohjelma joka selvittää kahden luvun suurimman yhteisen jakajan, tee toteutus silmukoilla
+5. Toteuta ohjelma joka tulosta 10 ensimmäisen luonnollisen numeron summan
+6. Toteuta ohjelma silmukoille joka testaa onko luku alkuluku, testi toteutetaan luvuille 1 ... 100
+7. Toteuta ohjelma joka selvittää kahden luvun suurimman yhteisen jakajan, tee toteutus silmukoilla
 
 Tehtäviä ei tarvitse palauttaa ja voit tarkastaa ne tiedostosta:
 https://github.com/centria/cpp-ohjelmointi-harjoitukset/blob/master/tehtava2_ehtorakenne.cpp

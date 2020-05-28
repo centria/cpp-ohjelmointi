@@ -14,4 +14,6 @@ has_toc: true
 
 ## Kirjastot
 
-## Esikääntäjä s
+## Esikääntäjän ohjaus
+
+## Globaalit muuttujat
