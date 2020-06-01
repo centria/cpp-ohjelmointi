@@ -23,5 +23,5 @@ Toteuta seuraavan omiin nimiavaruuksiinsa matikka ja geometria
 
 
 Tehtäviä ei tarvitse palauttaa ja voit tarkastaa ne tiedostosta:
-TULOSSA
+https://github.com/centria/cpp-ohjelmointi-harjoitukset/blob/master/tehtava3_funktiot.cpp
 
