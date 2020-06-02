@@ -2,7 +2,7 @@
 title: "Osa 5. Osoittimet"
 permalink: /part5/
 nav_order: 7
-published: false
+published: true
 has_children: true
 has_toc: true
 ---
@@ -28,12 +28,7 @@ Muistialueiden suora käsittely, osoittimien kautta, tarjoaa tehokkuuden lisäki
 3. Polymorphismi, käsitellään myöhemmin osioissa 7-8
 
 
-
-Pointers are just variables storing integers – but those integers happen to be memory addresses, usually addresses of other variables. A pointer that stores the address of some
-variable x is said to point to x. We can access the value of x by dereferencing the pointer.
-As with arrays, it is often helpful to visualize pointers by using a row of adjacent cells to
-represent memory locations, as below. Each cell represents 1 block of memory. The dotarrow notation indicates that ptr “points to” x – that is, the value stored in ptr is 12314,
-x’s memory address. 
+Osoittimia voidaan hyödyntää monipuolisesti perustietotyyppien käsittelyssä, mutta niistä on erityisesti hyötyä talukoita käsiteltäessä sekä kun käytämme myöhemmin dynaamista muistia.
 
 ## Osoittimet
 
@@ -41,7 +36,7 @@ Osoittimet kunten mikä tahansa muuttuja, niihin tallennetaan muistiosoitteita, 
 
 Kuten taulukoiden tapauksessa osoittimien toimintaa voidaan havainnollistaa peräkkäisillä lohkoilla. Jokainen alla esitetty lohko vastaa yhtä muistilohkoa. Piste (ptr) on muuttuja joka viitaa toiseen muistipaikkaan x, näin ollen prt muuttujan arvo on 12314, joka edustaa x:n muistipaikan osoitetta.
 
-![](2020-05-29-12-17-54.png)
+![](/assets/images/pointers_1.png)
 
 _Kuva 1. osoittimen havainnollistaminen, Lähde: MIT._
 
@@ -156,3 +151,58 @@ Edellinen funktio palauttaa osoittimen haamuNumeron muuttujan muistipaikkaan, ku
 
 As with any other variable, the value of a pointer is undefined until it is initialized, so it
 may be invalid. 
+
+## Lisää viittauksista
+
+Kun olemme tehneet funktiota tyyliin **f(int &b) {...}**, ja kutsumme sitä **f(a)**, viittattu muuttuja a saa funktiossa nimen b, käytänössä siis b on a:n muistipaikan aliasnimi. Voimme myös määritellä paikallisesti viittauksia:
+
+```c++
+int a;
+int &b = a; // Tekee b:stä vittauksen (aliaksen) a:lle
+```
+
+Nyt jos muutamme a:ta tai b:tä niin molemmat muuttuvat, koska ne käsittelevät samaa muistipaikkaa.
+
+Osoittimien ja viittauksien erot:
+
+- Viittauksia käsiteltäessä ei tarvitse huolehti operaatioista (* / &)  vaan ne tehdään automaattisesti
+- Viittauksen osoitetta ei voi vaihtaa, osoittimen voi. Tämän vuoksi viittaukset pitää alustaa
+
+## Viittaukset (&) ja osoittimet (*)
+
+Viittauksien ja osoittimien haaste on, että ne usein sekoitetaan varsinkin jos niitä ei käytä paljon. Tämä koskee erityisesti & ja * operaattoreita.
+
+\* operaattoria käytetään:
+1. Määrittelemään osoitin, * sijoitetaan tällöin muuttujan nimen eteen
+2. Kun halutaan osoitinmuuttujasta ottaa arvo 
+
+\& operaattoria käytetään:
+1. Määrittelemään viittaava muuttuja, & sijoitetaan tällöin muuttujan nimen eteen
+2. Kun halutaan saada muuttujan muistiosoitteen arvo
+
+
+## Osoittimet ja taulukot
+
+Kun luomme taulukon esim. int taulukko[3], taulukko muuttuja itseasiassa on osoitin taulukon ensimmäisen alkion muistipaikkaan. Kun viittaamma indeksiin 2 viittaamme alkioon joka on 2:den lohkon päässä taulukon alkiosta 0. 
+
+
+### Osoitin artimetiikka
+
+Osoitimilla voidaan toteutta myös laskentaa, jolloin osoittinta on mahdollista siirtää matemaattisilla toimilla. Tämä mahdollistaa osoittimen nopean siirtämisen haluttuun lohkoon. Useammin käytetty menetelmä on lisätä / vähentää osoittimesta tietty luku jotta päästään haluttuun alkioon. Osoittimen siirtämistä eteenpäin lisäämällä osoittimeen lukuja on mahdollista seuraavasti:
+
+![](/assets/images/pointers_2.png)
+
+Kun käytetään osoitinaritmetiikkaa kääntäjä varmistaa, että osoitin siirtyy oikeaan muistipaikkaa, siirros riippuu siis käytettävästä tietotyypistä. 
+
+Edellisen kuvan mukainen koodi, joka tulostaa alkiot taulukosta käyttäen osoitinta on esitetty seuraavassa.
+
+```c++
+long arr [] = {9,5,6,33,21,44,2,99,65,41};
+long * ptr = arr;
+
+cout << "Alkiossa 0 on luku " <<  *(ptr) << endl;
+cout << "Alkiossa 1 on luku " <<  *(ptr+1) << endl;
+cout << "Alkiossa 2 on luku " <<  *(ptr+2) << endl;
+cout << "Alkiossa 9 on luku " << *(ptr+9) << endl;
+
+```
