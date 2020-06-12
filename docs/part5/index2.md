@@ -1,208 +1,416 @@
 ---
-title: "Osa 5. Osoittimet"
-permalink: /part5/
-nav_order: 7
+title: "Osa 6. Luokat"
+permalink: /part6/
+nav_order: 8
 published: true
 has_children: true
 has_toc: true
 ---
 
-# Osa 5 - Osoittimet
+# Osa 6 - Luokat
 
 ## Johdanto
 
-Kun määrittelemme muuttujia varataan tietokoneen muistista muuttujalle osoite ja varataan tila.
-Kun käytät muuttujia tapahtuu seuraavat:
-1. Tietokone tarkastaa mitä mihin muistialueeseen muuttuja viittaa
-2. Tietokone siirtyy käsittelemään muistialuetta ja joko noutaa tai asettaa arvon sen perusteella
+Jos haluamme käsitellä koodissa monimutkaisempia rakenteita kuin yksittäisiä arvoja, tarvitsemme järeämpiä tietotyyppejä. Tähän tarkoitukseen C++ tarjoaa luokat ja rakenteet. Omien tietotyyppien kautta monimutkaisempia rakenteita voidaan kehittää ja näinollen mallintaa reaalimailmaa paremmmin. Tämä tekee C++ :sta myös olio-ohjelmointi kielen.
 
-C++:ssa voidaan käsitellään muistialuita suoraan suorittaen jommankumman kohdan 1. tai 2. Olemme aikaisemmin käyttäneet vittausta, eli kohtaa 1.
+## Olio-ohjelmointi (lyhyesti)
 
-1. &x -> hakee muuttujan x muistiosoitteen
-2. *( &x ) ottaa x:n muistiosoitteesta arvon, eli *( &x ) = x
+Olio-ohjelmoinnissa ongelma jaetaan pienempiin osiin, yrittäen simuloida todellisen maailman objekteja. Olioista tulee näin ollen ohjelmoijan rakennuskomponentteja. Hyvin toteutettuja ja testattuja olioita voidaan käyttää eri projekteissa. 
 
-Muistialueiden suora käsittely, osoittimien kautta, tarjoaa tehokkuuden lisäki uusia ominaisuuksia kuin pelkkä muuttujien käyttö:
+Kun olio on luotu ohjelmoijan ei tarvitse jatkossa tietää miten olio toimii, vaan tietää miten sitä käytetään. Näin ohjelmoija voi keskittyä uusien ominaisuuksien ja olioiden luomiseen, tämä tehostaa koodaustyötä sekä antaa mahdollisuuden luoda laajoja kokonaisuuksia
 
-1. Osoittimilla voidaan toteuttaa viittauksien välitys monipuolisemmin
-2. Monimutkaisten tietorakenteiden tehokas käsittely, vaikka tieto olisi ei muistiosoitteissa
-3. Polymorphismi, käsitellään myöhemmin osioissa 7-8
+Olio-ohjelmoinnissa ohjelmiston keskitytään ns. perusyksiköiden eli olioiden käsittelyyn. Oliot ovat C++: san  tapauksessa luokista/rakenteista luotuja instansseja. Olio sisältää joukon loogisesti yhteenkuuluvia:
+- tietoja (attribuutteja)
+- toiminnallisuuksia (metodeja)
 
+Oliot voivat kommunikoida keskenään lähettämällä viestejä tai kutsumalla toisen olioiden metodeja. Viestin vastaanottaminen suorittaa määritellyn toiminnon vastaanottavassa oliossa. 
 
-Osoittimia voidaan hyödyntää monipuolisesti perustietotyyppien käsittelyssä, mutta niistä on erityisesti hyötyä talukoita käsiteltäessä sekä kun käytämme myöhemmin dynaamista muistia.
+Oliolla on määritelmä, josta käytetään nimeä luokka. Luokka määrittelee jonkun tietyn oliojoukon yhteiset piirteet. Olio luodaan laatimalla luokan ilmentymä eli instanssi.
 
-## Osoittimet
+## Käsitteet 
 
-Osoittimet kunten mikä tahansa muuttuja, niihin tallennetaan muistiosoitteita, yleensä muiden muuttujien muistiosoitteita. Muuttuja joka tallentaa muuttujan X muistiosoitteen sanotaan osoittavan X:ään. Muistiosoitteeseen viittavasta muuttujasta voidaan hakea arvo tarvittaessa.
+Seuraavassa määritellään muutamia luokkiin liittyviä käsitteitä, voit palata näihin myöhemmin kun ne tulevat vastaan tehtävissä.
 
-Kuten taulukoiden tapauksessa osoittimien toimintaa voidaan havainnollistaa peräkkäisillä lohkoilla. Jokainen alla esitetty lohko vastaa yhtä muistilohkoa. Piste (ptr) on muuttuja joka viitaa toiseen muistipaikkaan x, näin ollen prt muuttujan arvo on 12314, joka edustaa x:n muistipaikan osoitetta.
+### Luokka (lähde: http://jkorpela.fi/olio-ohj.html)
 
-![](/assets/images/pointers_1.png)
+Luokka on olio-ohjelmoinnissa olion methodien ja attribuuttien määritelmä. Luokka koteloi (encapsulation) sekä olion attribuutit että methodit. Luokan ilmentymän (olio/object) rakenteen määräävät tietokentät, attribuutit, voivat olla myös olioita. Luokan perimät ja luokassa määritellyt ominaisuudet määräävät luokan ilmentymän toiminnan. 
 
-_Kuva 1. osoittimen havainnollistaminen, Lähde: MIT._
+Luokan määrittelyssä käytetään tiedon kätkentää, ne ominaisuudet, joita luokan asiakkaan ei ole tarkoitus käyttää, määritellään joko yksityisiksi tai suojatuiksi. Yksityiset ja suojatut ominaisuudet eivät näy luokan asiakkaalle. Ominaisuudet, joihin luokan asiakkaan on tarpeellista päästä käsiksi, määritellään julkisiksi.
 
-## Määrittely
+Luokka voi olla toteutukseltaan joko abstrakti tai konkreetti (palaamme abstakteihin luokkiin myöhemmin). Abstrakti luokka sisältää ainakin yhden viivästetyn (virtual) menetelmän. Menetelmä on viivästetty, jos menetelmästä on luokan kuvauksessa ainoastaan esittely, mutta ei toteutusta. Abstraktista luokasta ei voida luoda ilmentymiä, vaan luokkaa on tarkoitus käyttää periytymisessä yliluokkana. Konkreeteissa luokissa kaikki menetelmät ovat toteutettuja ja konkreeteista luokista voidaan luoda ilmentymiä.
 
-Kun haluamme muodostaa osoittimen joka osoittaa int-tyyppiseen muuttujaan, määritellään
+Seuraavassa kuvassa havainnollistettu Car-luokka
+![](2020-06-11-07-44-52.png)
 
-```
-tietotyyppi * muuttujan_nimi;
-```
+### Periytyminen
 
-Esim. int-tyyppiseen muuttujan osoitin määritellään.
+Periytyminen on kahden luokan välinen relaatio. Periytyminen mahdollistaa yliluokkassa määriteltyjen ominaisuuksien käytettämisen aliluokassa. Periytyminen on transitiivista eli aliluokka perii ominaisuudet myös kaikilta yliluokkansa esivanhemmilta. Luokan esivanhempia ovat luokan yliluokka ja yliluokan esivanhemmat. Vastaavasti luokan jälkeläisluokkia ovat luokan aliluokka sekä aliluokan jälkeläiset.
+
+Johdettaessa uusi luokka jostakin toisesta luokasta, johdetun luokan ilmentymän katsotaan sisältävän yliluokan ilmentymän aliolionaan. Aliluokassa voidaan yliluokasta perittyjä ominaisuuksia kumota eli määritellä uudestaan. Luokat ja niiden väliset periytymissuhteet muodostavat luokkahierarkian.
+
+Periytyminen jaetaan yksittäisperiytymiseen ja moniperiytymiseen. 
+- Yksittäisperiytymisessä aliluokalla on ainoastaan yksi yliluokka, jolta se perii ominaisuudet. 
+- Moniperiytymisessä aliluokalla voi olla useita yliluokkia. Moniperiytyminen voi olla riippumatonta, jolloin luokan yliluokilla ei ole yhteisiä esivanhempia, tai haarautuvaa, jolloin luokka perii jonkin esivanhemman ominaisuudet useampaa kuin yhtä reittiä. Kun jälkeläisluokka perii esivanhempiluokkansa useampaa eri reittiä, puhutaan toistuvasta periytymisestä. Jos aliluokka perii saman luokan yliluokkana useampaan kertaan, on toistuva periytyminen välitöntä.
+
+Periytymistä käytetään olio-ohjelmoinnissa hyvin eri tavoin ja hyvin erilaisiin tarkoituksiin. Erikoistaminen on periytymisen lajeista yleisin ja tärkein. Erikoistavassa periytymisessä aliluokan ilmentymä on yliluokan ilmentymän erikoistapaus (Halbert & O'Brien 1987). Erikoistavan periytymisen erityistapauksena pidetään määrittelyä (Budd 1991). Määrittelevässä periytymisessä kaikki käytettävät menetelmät, luokan liitymä, kuvataan jo yliluokassa, mutta niiden toteutus jätetään avoimeksi eli yliluokat ovat abstrakteja. Myös toteutus on yleisesti käytetty periytymisen laji. Toteutuksessa yliluokan ilmentymät ovat yksinään käyttökelvottomia, mutta niitä käytetään aliluokan llmentymän osana (Halbert & O'Brien 1987). Moniperiytyminen periytymisen lajina on yhdistävää periytymistä (Halbert & O'Brien 1987).
+
+Periytymisen lajeista yleistäminen ja muuntelu ovat jossain määrin periytymisen väärinkäyttöä (Halbert & O'Brien 1987), mutta tarpeellisia joissakin tapauksissa. Yleistävä periytyminen on erikoistavan periytymisen vastakohta, jota joudutaan käyttämään, kun yliluokkaa ei jostain syystä voida muuttaa (yliluokka on esimerkiksi kirjastoluokka). Kahden luokan välinen periytyminen on muuntelevaa periytymistä, jos yli- ja aliluokan välillä ei ole erikoistamissuhdetta, mutta niillä on paljon yhteisiä ominaisuuksia. Tällaisessa tilanteessa tulisi luokkien yhteiset ominaisuudet siirtää näiden yhteiseen yliluokkaan. Muuntelevan periytymisen käyttäminen on soveliasta, jos edellä kuvatuille luokille ei voida luoda yhteistä yliluokkaa (alkuperäinen yliluokka on esimerkiksi kirjastoluokka). Periytyminen on laajentavaa (Budd 1991) jos aliluokka lisää yliluokkaan uusia ominaisuuksia ja rajoittavaa (Budd 1991) jos aliluokka ei tarjoa omille aliluokilleen tai asiakkailleen kaikkia kaikkia yliluokkansa näkyviä ominaisuuksia.
+
+![](2020-06-10-21-38-09.png) Perintä, kuva https://www.raywenderlich.com/599-object-oriented-programming-in-swift
+
+### Monikäyttöisyys
+
+Budd (1991) määrittelee monikäyttöisyyden muuttujan ominaisuudeksi, jonka ansiosta muuttujan arvoksi voidaan asettaa eri tyyppejä olevia arvoja. Menetelmä on monikäyttöinen, jos sillä on ainakin yksi monikäyttöinen argumentti (implisiittinen itseviite mukaanlukien). Myös menetelmän, jonka nimeä on kuormitettu tekemällä siitä useita eri toteutuksia, katsotaan olevan monikäyttöinen.
+
+Luokkahierarkiaan kuuluvien luokkien ilmentymät ovat monikäyttöisiä, koska luokasta periytymisellä johdetun aliluokan ilmentymää voidaan käsitellä myös yliluokan ilmentymänä aliluokan ilmentymän sisältäessä kaikki yliluokan ilmentymän ominaisuudet. Edellämainitun ansiosta voidaan sekä yli- että aliluokan ilmentymiin soveltaa yliluokan menetelmiä. Koska yliluokan menetelmät voidaan kumota aliluokassa, voidaan luokkien ilmentymiin soveltaa myös samannimisiä, mutta toteutukseltaan erilaisia menetelmiä.
+
+Monikäyttöisyys voi olla joko yleistä tai erityistä (Cardelli & Wegner 1985). Yleisessä monikäyttöisyydessä toteutukseltaan samaa menetelmää voidaan soveltaa eri luokkien ilmentymiin. Erityisessä monikäyttöisyydessä suoritetaan samannimisen menetelmän eri toteutuksia eri luokkien ilmentymille. Erityisestä monikäyttöisyydestä esimerkkejä ovat menetelmien ja operaattoreiden kuormitus sekä yksinkertaisimmillaan automaattinen tyypinmuunnos. Yleinen monikäyttöisyys jaetaan sisältyvään ja parametriseen monikäyttöisyyteen. Sisältyvää monikäyttöisyyttä esiintyy periytymisessä yliluokan menetelmien periytyessä aliluokalle. Yliluokan menetelmät ovat käytössä myös aliluokissa ja menetelmiä kutsuttaessa suoritetaan aina sama yliluokassa toteutettu koodi. Parametrisessa monikäyttöisyydessä menetelmät voidaan toteuttaa tietämättä argumenttien todellista tyyppiä. Parametrista monikäyttöisyyttä esiintyy esimerkiksi geneeristen luokkien toteutuksissa.
+
+![](2020-06-11-07-58-35.png) Monikäyttöisyys, kuva https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7260/
+
+### Lisämateriaali
+
+Hyvää lisämateriaali ovat esim seuraavat linkit:
+https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7260/
+https://learntocodetogether.com/what-the-heck-is-oop/ (Java-kielellä)
+
+### Luokkien käyttö
+
+Tutustutaan seuraavaksi luokkien käyttöön esimerkin kautta. Jos tarvitsemme monimutkaisemman muuttujan esim. Vektorin joka osoittaa pisteestä x1,y1 pisteeseen x2,y2. Jos tekisimme tällaisen toteutuksen tarvitsimme neljä erillistä muuttujaa, ja joutuisimme manuaalisesti ylläpitämän niiden suhdetta.
+
+![](2020-06-11-08-11-28.png)
+
+Koodissa tämä tarkoittaisi vaikeasti ylläpidettävää ratkaisua.
 
 ```c++
-int x = 10; 
-int *ptr = &x; //ptr sisältää nyt x:n muistiosoitteen
-```
 
-Osoitin toimii mille tahansa tietotyypille, tätä käsitellään luokkien yhteydessä lisää.
-
-## Arvojen käyttö
-
-Kun haluamme hakea osoitimen arvon, teemme seuraavat toimet:
-1. Siirrytään osoittimen muistipaikkaan, (* operaattori)
-2. Luetaan arvo valitussa tietotyypissä
-
-```c++
-int x = 10; 
-int *ptr = &x; //ptr sisältää nyt x:n muistiosoitteen
-
-cout << "PTR osoittaa: " << ptr << endl; //Tulostetaan ptr:n muitipaikan osoite
-cout << "PTR:n osoittaman muistipaikan sisältämä arvo: " << *ptr << endl; //Tulostetaan ptr:n arvo käyttäen * operaatiolla
-```
-
-Vastaavasti jos haluamme asettaa arvon muistipaikkaan käyttämme* operaatiota
-
-```c++
-*ptr = 5; // Asettaa muistipaikan arvoksi 5
-```
-
-Kuten mitä tahansa tietotyyppiä, osoittimia voidaan käyttää funktion parametereina. Jolloin parametreina välitetään muistipaikkojen tietoja joita voidaan sitten käsitellä. Tämä tehostaa ohjelman suorittamista sekä vähentää sen muistinkäyttöä.
-
-```c++
-void korotaToiseenPotenssiin ( int * numPtr ) 
-{
-    *numPtr = *numPtr * *numPtr ;
+void printVector(double x0, double y0, double x1, double y1) {
+ cout << "(" << x0 << "," << y0 << ") -> ("
+ << x1 << "," << y1 << ")" << endl;
 }
 
-int main () 
-{
-    int x = 5;
-    korotaToiseenPotenssiin (&x);
-    cout << x; // Tulostaa 25
+int main() {
+ double x1 = 0.0;
+ double y1 = 0.0;
+ double x2 = 10.0;
+ double y2 = 2.5;
+ printVector(x1, y1, x2, y2);
 }
 ```
 
-## Osoittimen muuttaminen
+Voimme yksinkertaistaa toteutusta määrittelemällä oman luokkamme nimeltä Vektori.
+Tässä luokassa meillä on käytössä, attribuutit:
+- x0,y0,x1,y1
+Methodit:
+- printVector
 
-Osoitin voidaan siirtää osoittamaan toiseen muistiosoiteeseen, tämänkin osalta osoitin toimii kuten mikä tahansa muuttuja. Osoittimet myös tottelevat artimeettisia operaatioita esim ++ siirtää osoittimen seuraavaan muistipaikkaan ja -- edelliseen, näistä on hyötyä käsiteltäessä taulukoita osoittimien kautta.
+Seuraavassa luokka Vector on kuvattu UML-kielellä. UML:llä voidaan mallintaa suurinosa ohjelmoinnissa käytettävistä malleista, esim. luokan osalta UML-tietoa löytyy: https://tietokantojen-perusteet-19.mooc.fi/osa-3/1-tiedon-kuvaaminen
 
-```c++
-int x = 10; 
-int y = 12;
-int *ptr = &x; //ptr sisältää nyt x:n muistiosoitteen
+![](2020-06-11-08-18-38.png)
 
-cout << "PTR osoittaa: " << ptr << endl; //Tulostetaan ptr:n muitipaikan osoite
-cout << "PTR:n osoittaman muistipaikan sisältämä arvo: " << *ptr << endl; //Tulostetaan ptr:n arvo käyttäen * operaatiolla
+#### Luokan määrittely
 
-ptr = &y; //ptr sisältää nyt y:n muistiosoitteen
+Luokka määritellään seuraavan syntaksin mukaisesti. Tässä määrittelemmen uuden Vector luokan.
+Määrittely alkaa aina sanalla class, jota seuraa luokan nimi (isolla kirjotettuna on hyvä käytäntö)
 
-cout << "PTR osoittaa: " << ptr << endl; //Tulostetaan ptr:n muitipaikan osoite
-cout << "PTR:n osoittaman muistipaikan sisältämä arvo: " << *ptr << endl; //Tulostetaan ptr:n arvo käyttäen * operaatiolla
-```
+![](2020-06-12-07-59-38.png)
 
+Luokan määrittelyssä esittellään luokan jäsenmuuttujat (attribuuti) sekä niiden näkyvyysalue. Jäsenmuuttujien osalta esimerkissä käytetään double -tietotyyppiä, mutta tämä tietotyyppi voi olla mikä tahansa myös toinen luokka.
 
-## Vakiot osoittimissa
+![](2020-06-12-08-31-06.png)
 
-Kun halutaan vakioida osoittimia tai niiden arvoja, voidaan const-lause kohdistaa kahteen eri paikkaan:
-- osoittimeen
-- osoittimen osoittamaan arvoon
+Jäsenmuuttujat kuten myöhemmin jäsenfunktio voivat olla:
+- julkisia (public), eli kaikilla on oikeus käyttää niitä. 
 
-Seuraava lauseke määrittää osoittimen joka osoittaa vakio int-arvoon, int-arvoa ei voida muuttaa osoittimen kautta. Osoitin voidaan siirtää kuitenkin osoittamaan toiseen muistipaikkaan.
-```
-const int *prt;
-```
+Voidaan määritellä myös ne yksityisiksi (private) tai suojatuiksi (protected).  
 
-Seuraava lauseke taas määrittää osoittimen joka osoitaa aina samaan muistipaikkaan, tällöin sitä ei voida siirtää toiseen muistipaikkaan. Mutta sitä arvoa voidaan muuttaa johon osoitin osoittaa.
-```
-int *const ptr;
-```
+- Yksityiset jäsenet ovat käytössä vain luokan omissa jäsenfunktioissa, sekä erikseen määriteltyjen ystävien käytössä, ystävien käyttämiseen palataan myöhemmin.  
 
+- Suojattuja jäseniä voivat edellä mainittujen lisäksi käyttää johdetut toiset luokat, tätä käsitellään myöhemmin.  
 
-## Null, alustamattomat, and Deallocated Pointers
+Kun käytämme näkyvyysalueita oikein, piilotamme luokkamme käyttäjiltä turhat muuttujat ja funktiot. Näin käyttäjät voivat keskittyä vain niihin ominaisuuksiin joita haluamme heidän käyttävän. Eivätkä he pääse esimerkiksi vaikuttamaan luokan sisäiseen toimintaan. 
 
-Jotkin osoittimet eivät osoita oikeaan tietoon, esim jos osoitin jää alustamatta ja sitä käytetään. Tai sitten käytetään osoitinta jonka osoittama muistialue on vapautettu. Jos tällaista osoitinta käytetään aiheutuu ajonaikainen virhe ja ohjelma kaatuu.
+#### Luokan käyttäminen
 
-Jokainen osoitin joka on asetettu arvoon 0 on ns. NULL osoitin, myös tällaisen osoittimen käyttö aiheuttaa ongelmia. NULL-osoitinta voidaan kuitenkin käyttää tarkistamaan osoittaako osoitimen tilaa. Hyvien käytäntöjen mukaisesti tulisi osoitin aina tarkistaa ennen käyttöä ja näin selvittää onko se NULL-osoitin. On myös yleinen käytäntö asettaa osoitin 0:ksi kun sitä ei enään käytetä.
+Kun käytämme luokkaa luomme siitä olion (instance), jokainen olio elää omaa elämäänsä ja näin ollen jokaisen olio sisältää eri tietoa.
 
-Virheellisen osoittimen voi saada aikaan esim. seuraavasti:
+Olioiden luominen tapahtuu seuraavasti:
 
 ```c++
-int * myFunc () 
+
+//Määritellään Vector luokka
+class Vector 
+{ 
+       public: 
+        double x0; 
+        double y0; 
+        double x1; 
+        double y1; 
+}; // <-- HUOM! Luokan määrittely päättyy ;
+
+int main() 
 {
-    int haamuNummero = 4;
-    return &haamuNummero ;
+    Vector v1; //Olio v1
+    Vector v2; //Olio v2
 }
 
 ```
 
-Edellinen funktio palauttaa osoittimen haamuNumeron muuttujan muistipaikkaan, kuitenkin kun funtkion suorittaminen päätty haamuNumero on jo tuhoutunut. Näin ollen funktion palauttama osoitin osoittaa muistipaikkaan joka ei ole enään ohjelman hallusa.
+Nyt oliot v1 ja v2 varataan omina muistialueinaan ja niiden arvot ovat satunnaiset, koska emme alusta luokan jäsenmuuttujien arvoja.
 
+![](2020-06-12-09-20-58.png)
 
-As with any other variable, the value of a pointer is undefined until it is initialized, so it
-may be invalid. 
-
-## Lisää viittauksista
-
-Kun olemme tehneet funktiota tyyliin **f(int &b) {...}**, ja kutsumme sitä **f(a)**, viittattu muuttuja a saa funktiossa nimen b, käytänössä siis b on a:n muistipaikan aliasnimi. Voimme myös määritellä paikallisesti viittauksia:
+Nyt voimme käyttää olioita ja niiden jäsenmuuttujia. Kun haluamme käsitellä jäsenmuuttujia käytetään piste -syntaksia. esim. **olio.muuttujan_nimi**, sama koskee myöhemmin kun haluamme kutsua olion funkioita.
 
 ```c++
-int a;
-int &b = a; // Tekee b:stä vittauksen (aliaksen) a:lle
+int main() 
+{
+    Vector v1; //Olio v1
+    Vector v2; //Olio v2
+
+    v1.x0 = 0;
+    v1.y0 = 0;
+
+    v1.x1 = 10;
+    v1.y1 = 5;
+}
 ```
 
-Nyt jos muutamme a:ta tai b:tä niin molemmat muuttuvat, koska ne käsittelevät samaa muistipaikkaa.
+Tämän myötä olio v1 saa jäsenmuuttujilleen arvot, ja olion v2 jäsenmuuttujien arvot pysyvät alustamattomina
 
-Osoittimien ja viittauksien erot:
+![](2020-06-12-09-23-50.png)
 
-- Viittauksia käsiteltäessä ei tarvitse huolehti operaatioista (* / &)  vaan ne tehdään automaattisesti
-- Viittauksen osoitetta ei voi vaihtaa, osoittimen voi. Tämän vuoksi viittaukset pitää alustaa
-
-## Viittaukset (&) ja osoittimet (*)
-
-Viittauksien ja osoittimien haaste on, että ne usein sekoitetaan varsinkin jos niitä ei käytä paljon. Tämä koskee erityisesti & ja * operaattoreita.
-
-\* operaattoria käytetään:
-1. Määrittelemään osoitin, * sijoitetaan tällöin muuttujan nimen eteen
-2. Kun halutaan osoitinmuuttujasta ottaa arvo 
-
-\& operaattoria käytetään:
-1. Määrittelemään viittaava muuttuja, & sijoitetaan tällöin muuttujan nimen eteen
-2. Kun halutaan saada muuttujan muistiosoitteen arvo
-
-
-## Osoittimet ja taulukot
-
-Kun luomme taulukon esim. int taulukko[3], taulukko muuttuja itseasiassa on osoitin taulukon ensimmäisen alkion muistipaikkaan. Kun viittaamma indeksiin 2 viittaamme alkioon joka on 2:den lohkon päässä taulukon alkiosta 0. 
-
-
-### Osoitin artimetiikka
-
-Osoitimilla voidaan toteutta myös laskentaa, jolloin osoittinta on mahdollista siirtää matemaattisilla toimilla. Tämä mahdollistaa osoittimen nopean siirtämisen haluttuun lohkoon. Useammin käytetty menetelmä on lisätä / vähentää osoittimesta tietty luku jotta päästään haluttuun alkioon. Osoittimen siirtämistä eteenpäin lisäämällä osoittimeen lukuja on mahdollista seuraavasti:
-
-![](/assets/images/pointers_2.png)
-
-Kun käytetään osoitinaritmetiikkaa kääntäjä varmistaa, että osoitin siirtyy oikeaan muistipaikkaa, siirros riippuu siis käytettävästä tietotyypistä. 
-
-Edellisen kuvan mukainen koodi, joka tulostaa alkiot taulukosta käyttäen osoitinta on esitetty seuraavassa.
+Voimme käyttä nyt uutta luokkaamme myös funktiossa, muista että kääntäjä lukee koodi ylhäältä alas, joten luokan tulee olla määritelty ennen sen käyttöä.
 
 ```c++
-long arr [] = {9,5,6,33,21,44,2,99,65,41};
-long * ptr = arr;
+ //Määritellään Vector luokka
+    class Vector
+    {
+           public:
+            double x0;
+            double y0;
+            double x1;
+            double y1;
+    }; // <-- HUOM! Luokan määrittely päättyy ;
 
-cout << "Alkiossa 0 on luku " <<  *(ptr) << endl;
-cout << "Alkiossa 1 on luku " <<  *(ptr+1) << endl;
-cout << "Alkiossa 2 on luku " <<  *(ptr+2) << endl;
-cout << "Alkiossa 9 on luku " << *(ptr+9) << endl;
+    void tulostaVektori(Vector v);
+
+    int main()
+    {
+        Vector v1; //Olio v1
+        Vector v2; //Olio v2
+
+        v1.x0 = 0;
+        v1.y0 = 0;
+
+        v1.x1 = 10;
+        v1.y1 = 5;
+
+            tulostaVektori(v1);
+    }
+
+    void tulostaVektori(Vector v)
+    {
+        cout << "start:" << v.x0 << "," << v.y0 << " end:" << v.x1 << "," << v.y1 << endl;
+    }
+
+```
+
+Oliot voidaan sijoittaa myös samantietotyypin oliohin, näin oliossa olevat tieto kopioituu kohdeolioon
+
+```c++
+v2 = v1;
+tulostaVektori(v2);
+```
+
+
+#### Luokat funktion parametreina
+
+Luokat välitetään funktioille arvopohjaisesti kuten muutkin tietotyypit, jos halutaan muutaa olion arvoja funktiossa käytetään viittauksia.
+
+Esimerkiksi vektorin alustaminen viittauksia käyttäen
+
+```c++
+void alustaVektori(Vector& v)
+{
+    v.x0 = 0;
+    v.y0 = 0;
+    v.x1 = 0;
+    v.y1 = 0;
+}
+```
+
+### Luokkien jäsenfunktiot
+
+Koska funktion jäseniä ja toiminnallisuutta käsitteleävät funktiot liittyvät tiukasti funktion arvoihin ja sisäiseen toiminnallisuuteen on järkevää sijoittaa nämä luokan omiin funktioihin. 
+
+Jäsenfunktioiden osalta noudatetaan samaa syntaksia kuin mitä olemme käyttäneet funktioiden määrittelyssä aiemmin. Jäsenfunktioissa voimme käsitellä jäsenmuuttujia suoraan (ilman viittausta olioon) ja vaikka kutsua toista jäsenfunktiota.
+
+Jäsenfuktiot toimivat rajapintana luokan käyttämiselle, näin voimme piilottaa jäsenmuuttujat käyttäjiltä.
+
+```c++
+    //Määritellään Vector luokka
+    class Vector
+    {
+           private: //Yksityiset jäsenmuuttujat
+            double x0;
+            double y0;
+            double x1;
+            double y1;
+
+
+            public: //Julkiset jäsenfunktiot
+
+            void tulostaVektori()
+            {
+                cout << "start:" << x0 << "," << y0 << " end:" << x1 << "," << y1 << endl;
+            }
+
+            void alustaVektori()
+            {
+                x0 = 0;
+                y0 = 0;
+                x1 = 0;
+                y1 = 0;
+
+                tulostaVektori();
+            }
+
+            //HUOMAA, jos parametrit ovat samannimiset kuin jäsenmuuttujat
+            // viitataan jäsenmuuttujiin this-> operaatiolla
+            void aseta(double x0, double y0, double x1, double y1)
+            {
+               this->x0 = x0;
+                this->x1 = x1;
+                this->y0 = y0;
+                this->y1 = y1;
+            }
+
+
+
+    }; // <-- HUOM! Luokan määrittely päättyy ;
+
+
+    int main()
+    {
+        Vector v1; //Olio v1
+        Vector v2; //Olio v2
+
+         //v1.x = 0; << EI SALLITTU ENÄÄ
+
+        v2.alustaVektori();
+        v1.alustaVektori();
+
+        v1.aseta(5,5,10,10);
+
+    }
+
+```
+
+### Luokkien konstruktorit (ja destruktori)
+
+C++:ssa on kaksi erikoisjäsenfunktiota. Nämä ovat rakentaja (constructor) sekä hävittäjä (destructor). Nämä kaksi funktiota ovat tärkeässä roolissa luokan alustamisessa (rakentaja) sekä kun luokan elinaika päättyy ja se tuhotaan (destructor). Nämä funktiot nimetään aina: 
+
+ 
+```
+Rakentaja =  luokan_nimi  
+
+Hävittäjä = ~luokan_nimi.  
+```
+
+Rakentajaa kutsutaan, kun luokasta tehdään olio ja hävittäminen vastaavasti kun se loppuu. Rakentajalla voi olla useita muotoja, hävittäjällä vain yksi. Eli rakentajalla voidaan välittää parametreja tai olla välittämättä. Esimerkissämme ei ole hävittäjää, koska se ei ole pakollinen. Hävittäjää tarvitaan erityisesti silloin, jos oliomme käyttää dynaamisesti varattuja resursseja (tästä aiheesta myöhemmin). 
+
+**Huomaa että rakentaja (kuten ei myöskään hävittäjä) palauta mitään arvoa.** 
+
+Luokalla voi olla useita rakentajia ja rakentaja funktiot voivat olla paramterillisia.
+
+```c++
+//Määritellään Vector luokka
+class Vector
+{
+        private: //Yksityiset jäsenmuuttujat
+        double x0;
+        double y0;
+        double x1;
+        double y1;
+
+
+        public: //Julkiset jäsenfunktiot
+
+        //Perusrakentaja, alustaa arvot 0:lla
+        Vector()
+        {
+            alustaVektori();
+        }
+
+            //Rakentaja, alustaa arvot parametreilla
+        Vector(double x0, double y0, double x1, double y1)
+        {
+            this->x0 = x0;
+            this->y0 = y0;
+            this->x1 = x1;
+            this->y1 = y1;
+        }
+
+            //Rakentaja, kopioi arvot toisesta olios
+        Vector(Vector& v)
+        {
+            this->x0 = v.x0;
+            this->y0 = v.y0;
+            this->x1 = v.x1;
+            this->y1 = v.y1;
+        }
+
+        //MUUT
+        void tulostaVektori()
+        {
+            cout << "start:" << x0 << "," << y0 << " end:" << x1 << "," << y1 << endl;
+        }
+
+        void alustaVektori()
+        {
+            x0 = 0;
+            y0 = 0;
+            x1 = 0;
+            y1 = 0;
+
+            tulostaVektori();
+        }
+
+        //HUOMAA, jos parametrit ovat samannimiset kuin jäsenmuuttujat
+        // viitataan jäsenmuuttujiin this-> operaatiolla
+        void aseta(double x0, double y0, double x1, double y1)
+        {
+            this->x0 = x0;
+            this->x1 = x1;
+            this->y0 = y0;
+            this->y1 = y1;
+        }
+
+
+
+}; // <-- HUOM! Luokan määrittely päättyy ;
+
+
+int main()
+{
+    Vector v1; //Olio v1
+
+
+
+    //v1.x = 0; << EI SALLITTU ENÄÄ
+
+    //v1.alustaVektori();
+
+    v1.aseta(5,5,10,10);
+    v1.tulostaVektori();
+
+    Vector v2(v1); //Alustetaan uusi vektori V1 arvoilla
+    v2.tulostaVektori();
+
+
+    Vector v3(1,2,4,6); //Alustetaan uusi määritetyillä arvoilla
+    v3.tulostaVektori();
+}
 
 ```
