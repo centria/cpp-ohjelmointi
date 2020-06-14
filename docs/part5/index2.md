@@ -11,15 +11,15 @@ has_toc: true
 
 ## Johdanto
 
-Jos haluamme käsitellä koodissa monimutkaisempia rakenteita kuin yksittäisiä arvoja, tarvitsemme järeämpiä tietotyyppejä. Tähän tarkoitukseen C++ tarjoaa luokat ja rakenteet. Omien tietotyyppien kautta monimutkaisempia rakenteita voidaan kehittää ja näinollen mallintaa reaalimailmaa paremmmin. Tämä tekee C++ :sta myös olio-ohjelmointi kielen.
+Jos haluamme käsitellä koodissa monimutkaisempia rakenteita kuin yksittäisiä arvoja, tarvitsemme järeämpiä tietotyyppejä. Tähän tarkoitukseen C++ tarjoaa luokat ja rakenteet. Omien tietotyyppien kautta monimutkaisempia rakenteita voidaan kehittää ja näin ollen mallintaa reaalimailmaa paremmmin. Tämä tekee C++ :sta myös olio-ohjelmointi kielen.
 
 ## Olio-ohjelmointi (lyhyesti)
 
 Olio-ohjelmoinnissa ongelma jaetaan pienempiin osiin, yrittäen simuloida todellisen maailman objekteja. Olioista tulee näin ollen ohjelmoijan rakennuskomponentteja. Hyvin toteutettuja ja testattuja olioita voidaan käyttää eri projekteissa. 
 
-Kun olio on luotu ohjelmoijan ei tarvitse jatkossa tietää miten olio toimii, vaan tietää miten sitä käytetään. Näin ohjelmoija voi keskittyä uusien ominaisuuksien ja olioiden luomiseen, tämä tehostaa koodaustyötä sekä antaa mahdollisuuden luoda laajoja kokonaisuuksia
+Kun olio on luotu ohjelmoijan ei tarvitse jatkossa tietää miten olio toimii, vaan tietää miten sitä käytetään. Näin ohjelmoija voi keskittyä uusien ominaisuuksien ja olioiden luomiseen, tämä tehostaa koodaustyötä sekä antaa mahdollisuuden luoda laajoja kokonaisuuksia. Yksittäisten olioiden toiminallisuus on myös helpompi testata oikeaksi.
 
-Olio-ohjelmoinnissa ohjelmiston keskitytään ns. perusyksiköiden eli olioiden käsittelyyn. Oliot ovat C++: san  tapauksessa luokista/rakenteista luotuja instansseja. Olio sisältää joukon loogisesti yhteenkuuluvia:
+Olio-ohjelmoinnissa keskitytään ns. perusyksiköiden eli olioiden käsittelyyn. Oliot ovat C++: san  tapauksessa luokista/rakenteista luotuja instansseja. Olio sisältää joukon loogisesti yhteenkuuluvia:
 - tietoja (attribuutteja)
 - toiminnallisuuksia (metodeja)
 
@@ -27,11 +27,11 @@ Oliot voivat kommunikoida keskenään lähettämällä viestejä tai kutsumalla 
 
 Oliolla on määritelmä, josta käytetään nimeä luokka. Luokka määrittelee jonkun tietyn oliojoukon yhteiset piirteet. Olio luodaan laatimalla luokan ilmentymä eli instanssi.
 
-## Käsitteet 
+## Käsitteet  (lähde: http://jkorpela.fi/olio-ohj.html)
 
 Seuraavassa määritellään muutamia luokkiin liittyviä käsitteitä, voit palata näihin myöhemmin kun ne tulevat vastaan tehtävissä.
 
-### Luokka (lähde: http://jkorpela.fi/olio-ohj.html)
+### Luokka
 
 Luokka on olio-ohjelmoinnissa olion methodien ja attribuuttien määritelmä. Luokka koteloi (encapsulation) sekä olion attribuutit että methodit. Luokan ilmentymän (olio/object) rakenteen määräävät tietokentät, attribuutit, voivat olla myös olioita. Luokan perimät ja luokassa määritellyt ominaisuudet määräävät luokan ilmentymän toiminnan. 
 
@@ -40,7 +40,7 @@ Luokan määrittelyssä käytetään tiedon kätkentää, ne ominaisuudet, joita
 Luokka voi olla toteutukseltaan joko abstrakti tai konkreetti (palaamme abstakteihin luokkiin myöhemmin). Abstrakti luokka sisältää ainakin yhden viivästetyn (virtual) menetelmän. Menetelmä on viivästetty, jos menetelmästä on luokan kuvauksessa ainoastaan esittely, mutta ei toteutusta. Abstraktista luokasta ei voida luoda ilmentymiä, vaan luokkaa on tarkoitus käyttää periytymisessä yliluokkana. Konkreeteissa luokissa kaikki menetelmät ovat toteutettuja ja konkreeteista luokista voidaan luoda ilmentymiä.
 
 Seuraavassa kuvassa havainnollistettu Car-luokka
-![](2020-06-11-07-44-52.png)
+![](/assets/images/class_figure_1.png)
 
 ### Periytyminen
 
@@ -56,7 +56,7 @@ Periytymistä käytetään olio-ohjelmoinnissa hyvin eri tavoin ja hyvin erilais
 
 Periytymisen lajeista yleistäminen ja muuntelu ovat jossain määrin periytymisen väärinkäyttöä (Halbert & O'Brien 1987), mutta tarpeellisia joissakin tapauksissa. Yleistävä periytyminen on erikoistavan periytymisen vastakohta, jota joudutaan käyttämään, kun yliluokkaa ei jostain syystä voida muuttaa (yliluokka on esimerkiksi kirjastoluokka). Kahden luokan välinen periytyminen on muuntelevaa periytymistä, jos yli- ja aliluokan välillä ei ole erikoistamissuhdetta, mutta niillä on paljon yhteisiä ominaisuuksia. Tällaisessa tilanteessa tulisi luokkien yhteiset ominaisuudet siirtää näiden yhteiseen yliluokkaan. Muuntelevan periytymisen käyttäminen on soveliasta, jos edellä kuvatuille luokille ei voida luoda yhteistä yliluokkaa (alkuperäinen yliluokka on esimerkiksi kirjastoluokka). Periytyminen on laajentavaa (Budd 1991) jos aliluokka lisää yliluokkaan uusia ominaisuuksia ja rajoittavaa (Budd 1991) jos aliluokka ei tarjoa omille aliluokilleen tai asiakkailleen kaikkia kaikkia yliluokkansa näkyviä ominaisuuksia.
 
-![](2020-06-10-21-38-09.png) Perintä, kuva https://www.raywenderlich.com/599-object-oriented-programming-in-swift
+![](/assets/images/inheritance.png) Perintä, kuva https://www.raywenderlich.com/599-object-oriented-programming-in-swift
 
 ### Monikäyttöisyys
 
@@ -66,7 +66,7 @@ Luokkahierarkiaan kuuluvien luokkien ilmentymät ovat monikäyttöisiä, koska l
 
 Monikäyttöisyys voi olla joko yleistä tai erityistä (Cardelli & Wegner 1985). Yleisessä monikäyttöisyydessä toteutukseltaan samaa menetelmää voidaan soveltaa eri luokkien ilmentymiin. Erityisessä monikäyttöisyydessä suoritetaan samannimisen menetelmän eri toteutuksia eri luokkien ilmentymille. Erityisestä monikäyttöisyydestä esimerkkejä ovat menetelmien ja operaattoreiden kuormitus sekä yksinkertaisimmillaan automaattinen tyypinmuunnos. Yleinen monikäyttöisyys jaetaan sisältyvään ja parametriseen monikäyttöisyyteen. Sisältyvää monikäyttöisyyttä esiintyy periytymisessä yliluokan menetelmien periytyessä aliluokalle. Yliluokan menetelmät ovat käytössä myös aliluokissa ja menetelmiä kutsuttaessa suoritetaan aina sama yliluokassa toteutettu koodi. Parametrisessa monikäyttöisyydessä menetelmät voidaan toteuttaa tietämättä argumenttien todellista tyyppiä. Parametrista monikäyttöisyyttä esiintyy esimerkiksi geneeristen luokkien toteutuksissa.
 
-![](2020-06-11-07-58-35.png) Monikäyttöisyys, kuva https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7260/
+![](/assets/images/monikaytto.png)  Monikäyttöisyys, kuva https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7260/
 
 ### Lisämateriaali
 
@@ -76,9 +76,9 @@ https://learntocodetogether.com/what-the-heck-is-oop/ (Java-kielellä)
 
 ### Luokkien käyttö
 
-Tutustutaan seuraavaksi luokkien käyttöön esimerkin kautta. Jos tarvitsemme monimutkaisemman muuttujan esim. Vektorin joka osoittaa pisteestä x1,y1 pisteeseen x2,y2. Jos tekisimme tällaisen toteutuksen tarvitsimme neljä erillistä muuttujaa, ja joutuisimme manuaalisesti ylläpitämän niiden suhdetta.
+Tutustutaan seuraavaksi luokkien käyttöön esimerkin kautta. Jos tarvitsemme monimutkaisemman muuttujan esim. Vektorin joka osoittaa pisteestä x1,y1 pisteeseen x2,y2. Jos tekisimme tällaisen toteutuksen tarvitsisimme neljä erillistä muuttujaa, ja joutuisimme manuaalisesti ylläpitämän niiden suhdetta.
 
-![](2020-06-11-08-11-28.png)
+![](/assets/images/class_1.png) 
 
 Koodissa tämä tarkoittaisi vaikeasti ylläpidettävää ratkaisua.
 
@@ -98,7 +98,7 @@ int main() {
 }
 ```
 
-Voimme yksinkertaistaa toteutusta määrittelemällä oman luokkamme nimeltä Vektori.
+Voimme yksinkertaistaa toteutusta määrittelemällä oman luokkamme nimeltä **Vector**.
 Tässä luokassa meillä on käytössä, attribuutit:
 - x0,y0,x1,y1
 Methodit:
@@ -106,25 +106,25 @@ Methodit:
 
 Seuraavassa luokka Vector on kuvattu UML-kielellä. UML:llä voidaan mallintaa suurinosa ohjelmoinnissa käytettävistä malleista, esim. luokan osalta UML-tietoa löytyy: https://tietokantojen-perusteet-19.mooc.fi/osa-3/1-tiedon-kuvaaminen
 
-![](2020-06-11-08-18-38.png)
+![](/assets/images/class_model.png) 
 
 #### Luokan määrittely
 
 Luokka määritellään seuraavan syntaksin mukaisesti. Tässä määrittelemmen uuden Vector luokan.
 Määrittely alkaa aina sanalla class, jota seuraa luokan nimi (isolla kirjotettuna on hyvä käytäntö)
 
-![](2020-06-12-07-59-38.png)
+![](/assets/images/class_def1.png) 
 
-Luokan määrittelyssä esittellään luokan jäsenmuuttujat (attribuuti) sekä niiden näkyvyysalue. Jäsenmuuttujien osalta esimerkissä käytetään double -tietotyyppiä, mutta tämä tietotyyppi voi olla mikä tahansa myös toinen luokka.
+Luokan määrittelyssä esittellään luokan jäsenmuuttujat (attribuutit) sekä niiden näkyvyysalue. Jäsenmuuttujien osalta esimerkissä käytetään double -tietotyyppiä, mutta tämä tietotyyppi voi olla mikä tahansa, myös toinen luokka.
 
-![](2020-06-12-08-31-06.png)
+![](/assets/images/class_def2.png) 
 
 Jäsenmuuttujat kuten myöhemmin jäsenfunktio voivat olla:
 - julkisia (public), eli kaikilla on oikeus käyttää niitä. 
 
 Voidaan määritellä myös ne yksityisiksi (private) tai suojatuiksi (protected).  
 
-- Yksityiset jäsenet ovat käytössä vain luokan omissa jäsenfunktioissa, sekä erikseen määriteltyjen ystävien käytössä, ystävien käyttämiseen palataan myöhemmin.  
+- Yksityiset jäsenet ovat käytössä vain luokan omissa jäsenfunktioissa, sekä erikseen määriteltyjen ystävien käytössä.  **Oletuksena luokan jäsenmuuttujat/-funktiot ovat yksityisiä**
 
 - Suojattuja jäseniä voivat edellä mainittujen lisäksi käyttää johdetut toiset luokat, tätä käsitellään myöhemmin.  
 
@@ -132,7 +132,7 @@ Kun käytämme näkyvyysalueita oikein, piilotamme luokkamme käyttäjiltä turh
 
 #### Luokan käyttäminen
 
-Kun käytämme luokkaa luomme siitä olion (instance), jokainen olio elää omaa elämäänsä ja näin ollen jokaisen olio sisältää eri tietoa.
+Kun käytämme luokkaa luomme siitä olion (instance), jokainen olio elää omaa elämäänsä omassa muistialueessaan, ja näin ollen jokainen olio sisältää eri tietoa.
 
 Olioiden luominen tapahtuu seuraavasti:
 
@@ -158,7 +158,7 @@ int main()
 
 Nyt oliot v1 ja v2 varataan omina muistialueinaan ja niiden arvot ovat satunnaiset, koska emme alusta luokan jäsenmuuttujien arvoja.
 
-![](2020-06-12-09-20-58.png)
+![](/assets/images/object_1.png) 
 
 Nyt voimme käyttää olioita ja niiden jäsenmuuttujia. Kun haluamme käsitellä jäsenmuuttujia käytetään piste -syntaksia. esim. **olio.muuttujan_nimi**, sama koskee myöhemmin kun haluamme kutsua olion funkioita.
 
@@ -178,7 +178,7 @@ int main()
 
 Tämän myötä olio v1 saa jäsenmuuttujilleen arvot, ja olion v2 jäsenmuuttujien arvot pysyvät alustamattomina
 
-![](2020-06-12-09-23-50.png)
+![](/assets/images/object_2.png) 
 
 Voimme käyttä nyt uutta luokkaamme myös funktiossa, muista että kääntäjä lukee koodi ylhäältä alas, joten luokan tulee olla määritelty ennen sen käyttöä.
 
@@ -318,7 +318,7 @@ Rakentaja =  luokan_nimi
 Hävittäjä = ~luokan_nimi.  
 ```
 
-Rakentajaa kutsutaan, kun luokasta tehdään olio ja hävittäminen vastaavasti kun se loppuu. Rakentajalla voi olla useita muotoja, hävittäjällä vain yksi. Eli rakentajalla voidaan välittää parametreja tai olla välittämättä. Esimerkissämme ei ole hävittäjää, koska se ei ole pakollinen. Hävittäjää tarvitaan erityisesti silloin, jos oliomme käyttää dynaamisesti varattuja resursseja (tästä aiheesta myöhemmin). 
+Rakentajaa kutsutaan, kun luokasta tehdään olio ja hävittäminen vastaavasti kun se olio tuhotaan. Rakentajalla voi olla useita muotoja, hävittäjällä vain yksi. Rakentajalla voidaan välittää parametreja tai olla välittämättä. Hävittäjää tarvitaan erityisesti silloin, jos oliomme käyttää dynaamisesti varattuja resursseja (tästä aiheesta myöhemmin). 
 
 **Huomaa että rakentaja (kuten ei myöskään hävittäjä) palauta mitään arvoa.** 
 
@@ -414,3 +414,5 @@ int main()
 }
 
 ```
+
+Esimerkkikoodi löytyy linkistä: https://github.com/centria/cpp-ohjelmointi-harjoitukset/blob/master/osa6_malli.cpp
