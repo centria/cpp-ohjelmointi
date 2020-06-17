@@ -9,6 +9,7 @@ has_toc: true
 
 # Osa EXTRAT
 
+## String luokka
 
 ## Rekursio
 
