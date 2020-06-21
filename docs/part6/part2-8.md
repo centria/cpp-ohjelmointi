@@ -116,6 +116,9 @@ void HenkiloAuto::kaynnista()
 }
 ```
 
+Tämän osion koodit löytyvät:
+https://github.com/centria/cpp-ohjelmointi-harjoitukset/tree/master/polymorphismi
+
 
 ## Tehtävät
 
