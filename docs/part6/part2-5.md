@@ -2,11 +2,11 @@
 title: "Luokat omissa tiedostoissa"
 permalink: /part6/3/
 nav_order: 1
-published: false
+published: true
 parent: "Osa 6. Luokat"
 ---
 
-# Osa 6b - Luokat osa 2
+# Luokat omissa tiedostoissa
 
 ## Johdanto
 
@@ -97,14 +97,244 @@ Funktion määrittely luokan tapauksessa sisältää aluksi luokannimen, johon f
 
 ## Omien funktioiden määrittely luokkaan
 
-## Staattiset funktiot ja muuttujat
+Luodaan seuraavaksi muutamia, muuttujia Auto-luokkaamme sekä funktioita. Hyödynnämme tässä tiedon piilotusta, käyttämällä julkisia sekä yksityisiä suojamääreitä.
 
-Static data members of a class are also known as “class variables,” because there is only one
-unique value for all the objects of that class. Their content is not different from one object
-of this class to another.
-For example, it may be used for a variable within a class that can contain a counter with
-the number of objects of the class that are currently allocated, as in the following example:
+Annetaan Auto-luokalle jäsenmuuttujat, nopeus sekä tunniste. Nämä jäsenmuuttujat ovat yksityisiä.
+Sekä lisäksi näihin jäsenmuuttujiin liittyvät funktiot, joilla asetetaan tai noudetaan jäsenmuuttujien arvot. Edellä mainittujen lisäksi lisäämme uuden konstruktorin jolle voi antaa parametrina tunnisteen.
 
-## const member functions
+```c++
+class Auto
+{
+public:
+    Auto();
+     Auto(long tunniste);
+       
+    void setNopeus(int n);
+    void setTunniste(long t);
+    
+private:
+    int nopeus;
+    long tunniste;
+    
+};
 
-## Type Conversions and Constructors
+```
+
+Seuraavaksi toteutamme vastaavat funktiot Auto.cpp tiedostoon. Tunnisteen luomisessa käytämme random-funktiota.
+
+```c++
+#include "auto.h"
+
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+
+Auto::Auto()
+{
+    srand( (unsigned)time(NULL) );
+    tunniste  = rand();
+}
+
+Auto::Auto(long tunniste)
+{
+
+    this->tunniste  = tunniste;
+}
+
+void Auto::setNopeus(int n)
+{
+    this->nopeus = n;
+}
+
+void Auto::setTunniste(long t)
+{
+    this->tunniste = t;
+}
+
+int Auto::getNopeus()
+{
+    return nopeus;
+}
+
+long Auto::getTunniste()
+{
+    return  tunniste;
+}
+
+```
+
+Oheisen määritysten jälkeen voimme käyttää Auto-luokkaa pääohjelmassamme.
+
+```c++
+#include <iostream>
+
+#include "auto.h"
+
+using namespace std;
+
+int main()
+{
+    Auto a1 = Auto();
+    Auto a2 = Auto(1202);
+
+    a1.setNopeus(10);
+    a2.setNopeus(20);
+
+    cout << "Auto1 nopeus:" << a1.getNopeus() << " tunniste:" << a1.getTunniste() << endl;
+    cout << "Auto2 nopeus:" << a2.getNopeus() << " tunniste:" << a2.getTunniste() << endl;
+    return 0;
+}
+
+```
+
+## Staattiset muuttujat
+
+Oletuksena luokkien jäsenet ovat niiden olioiden omia, jotka luokista on muodostettu. Esimerkiksi jos meillä on luokka Auto ja luokassa jäsenmuuttuja nopeus, luokasta muodostetuilla oliolla auto1 ja auto2 on omat nopeusmuuttujansa. 
+
+![](2020-06-17-19-00-34.png)
+
+Kuitenkin on mahdollista käyttää luokassa jaettua/staattista muuttujaa, joka on yhteinen kaikille luokasta muodostetuille olioille. Tätä voisi havainnollistaa seuraavasti: 
+
+![](2020-06-17-19-01-08.png)
+
+Näitä luokkien yhteisiä jäsenmuuttujia kutsutaan staattisiksi (static) muuttujiksi, ja ne merkitään sanalla static. Staattiset jäsenmuuttujat esitellään luokan sisällä, mutta ne täytyy myös määritellä, jotta niitä voidaan käyttää. Nämä staattiset muuttujat ovat ”elossa” koko ohjelman suorittamisen ajan alusta loppuun riippumatta siitä, luodaanko luokasta yhtään oliota.  
+
+Jos haluamme esimerkiksi seurata kuinka monta Auto-luokasta tehtyä oliota meillä on voimme tehdä Auto-luokkaan staattisen muuttujan, jonka arvoa kasvatetaan rakentaja funktiossa. Koska rakentajaa kutsutaan aina kun uusi olio luodaan kasvaa myös muuttujamme arvo.
+
+Seuraavassa on esitetty miten tehtyjen autojen määrää voidaan laskea: 
+
+Auto.h
+
+```c++
+#ifndef AUTO_H
+#define AUTO_H
+
+
+class Auto
+{
+public:
+    Auto();
+     Auto(long tunniste);
+
+    void setNopeus(int n);
+    void setTunniste(long t);
+
+    int getNopeus();
+    long getTunniste();
+
+    //Staattisen muuttujat:
+public:
+    static int tehdytAutot;
+
+private:
+    int nopeus;
+    long tunniste;
+
+};
+
+#endif // AUTO_H
+
+```
+
+Auto.cpp
+
+```c++
+#include <time.h>
+#include <stdio.h>
+
+//Määritellään staattinen muuttuja
+int Auto::tehdytAutot = 0;
+
+
+Auto::Auto()
+{
+    srand( (unsigned)time(NULL) );
+    tunniste  = rand();
+    tehdytAutot++;
+}
+
+Auto::Auto(long tunniste)
+{
+    this->tunniste  = tunniste;
+    tehdytAutot++;
+}
+
+void Auto::setNopeus(int n)
+{
+    this->nopeus = n;
+}
+
+void Auto::setTunniste(long t)
+{
+    this->tunniste = t;
+}
+
+int Auto::getNopeus()
+{
+    return nopeus;
+}
+
+long Auto::getTunniste()
+{
+    return  tunniste;
+}
+
+
+```
+
+main.cpp
+
+```c++
+#include <iostream>
+
+#include "auto.h"
+
+using namespace std;
+
+int main()
+{
+    Auto a1 = Auto();
+    Auto a2 = Auto(1202);
+
+    a1.setNopeus(10);
+    a2.setNopeus(20);
+
+    cout << "Auto1 nopeus:" << a1.getNopeus() << " tunniste:" << a1.getTunniste() << endl;
+    cout << "Auto2 nopeus:" << a2.getNopeus() << " tunniste:" << a2.getTunniste() << endl;
+
+    cout << "Tehdyt autot:" << Auto::tehdytAutot << endl;
+    return 0;
+}
+
+```
+
+## Staattiset funktiot
+
+Staattinen funktio on funktio, joka toimii ilman luokasta tehtyä oliota. Nämä funktiot voivat käsitellä vain staattisia jäsenmuuttujia, tai tehdä toteuttaa komentoja joihin ei tarvita olion jäsenmuuttujia. Tälläisia funktioita voivat olla esim. Matematiikka luokan operaatiot.
+
+Auto luokan osalta staattinen funktio voisi olla esim. kuvaile.
+
+Staattinen funktio esitellään:
+
+```c++
+ static void kuvaile();
+```
+
+ja määritellään:
+```c++
+void Auto::kuvaile()
+{
+    cout << "Autossa on neljä rengasta" << endl;
+}
+```
+sekä lopuksi käytetään:
+
+```c++
+Auto::kuvaile();
+```
+
+Tämän osion lähdekoodit löytyvät:
+
+auto.h: https://github.com/centria/cpp-ohjelmointi-harjoitukset/blob/master/osa6_auto.h
+auto.cpp: https://github.com/centria/cpp-ohjelmointi-harjoitukset/blob/master/osa6_auto.cpp
+main.cpp: https://github.com/centria/cpp-ohjelmointi-harjoitukset/blob/master/osa6_main.cpp

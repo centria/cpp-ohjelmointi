@@ -42,14 +42,14 @@ Kurssin sisällön kehittämisessä on hyödynnettyä Ciscon Networking Academyn
 |----------|-------------|
 | Viikko 1| C++ perusteet ja käännösympäristön asentaminen, perusrakenteet |
 | Viikko 2| Ohjausrakenteet |
-| Viikko 3| ... |
-| Viikko 4| ... |
-| Viikko 5| ... |
-| Viikko 6| ... |
-| Viikko 7| ... |
-| Viikko 8| ... |
-| Viikko 9| ... |
-| Viikko 10 | ... |
+| Viikko 3| Funktiot |
+| Viikko 4| Taulukot ja teksti |
+| Viikko 5| Osoittimet |
+| Viikko 6| Luokat, perusteet |
+| Viikko 7| Luokat, perintä, polymorphismi |
+| Viikko 8| Muistinhallinta |
+| Viikko 9| String luokka ja STL |
+| Viikko 10 | Edistyneet ominaisuudet |
 | Viikko 11 - 12 | Projektin totetuttaminen |
 
 Kurssin materiaalit julkaistaan viikoittain, jokaisen viikon perjantaihin mennessä.

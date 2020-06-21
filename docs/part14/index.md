@@ -9,17 +9,25 @@ has_toc: true
 
 # Osa EXTRAT
 
-## String luokka
+## Osa 4. String luokka
 
-## Rekursio
+## Osa 3. Rekursio
 
-## Kirjastot
+## Osa 6. Kirjastot
 
-## Esikääntäjän ohjaus
+## Osa X. Esikääntäjän ohjaus
 
-## Globaalit muuttujat
+## Osa 3. Globaalit muuttujat
 
-## Tietueet
+## Osa 6. Tietueet
+
+## Osa X. Vektori ja String - luokka
+
+3.9 - Sorting Links to an external site.
+
+##EXCEPTIONS
+
+Operators and enumerators
 
 Yksinkertaisimmillaan luokan voi määritellä käyttämällä struct-tietuetta. Seuraava esimerkki toteuttaa Auto tyyppisen tietueen, joka myöhemmin toimii olionamme. Tällä tietueelle on muuttuja nopeus, sekä asetaNopeus ja kerroNopeus funktiot joita voidaan kutsua oliolle. Tietueita voidaan hyödyntää yksinkertaisina rakenteina esim. luokan sisällä.
 
