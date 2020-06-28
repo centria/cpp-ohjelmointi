@@ -7,7 +7,7 @@ has_children: true
 has_toc: true
 ---
 
-# Osa 6 - Muistinhallinta
+# Osa 7 - Muistinhallinta
 
 ## Johdanto
 
