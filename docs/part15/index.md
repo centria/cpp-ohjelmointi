@@ -10,6 +10,7 @@ has_toc: false
 # Lopputyö
 
 Projektin ohjeet:
+
 1. Projektin tekemiseen menevä aika on noin 20-27h
 2. Projektin idea pitää hyväksyttää ohjaajalle
 3. Projektissa tulee olla seuraavat ominaisuudet:
